@@ -4,24 +4,30 @@ import { useState, useEffect } from 'react'
 
 
 function Profile() {
+    const token = () => {
+        if (typeof window !== "undefined") {
+            if (localStorage.getItem("token")) {
+                return JSON.parse(localStorage.getItem("token"))
+            } else {
+                return []
+            }
+        }
+    }
+    const config = { headers: { Authorization: `Bearer ${token}` } }
 
     const [userData, setUserData] = useState('')
+
     useEffect(() => {
-        const fetchData = async () => {
-            const encoded_jwt = localStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${encoded_jwt}` } }
-
-            const url = "http://127.0.0.1:8000/api/user"
-
-            fetch(url, config)
-                .then(resp => resp.json())
-                .then(data => setUserData(data))
+        const url = "http://127.0.0.1:8000/api/user"
+        const req = async () => {
+            const data = axios.get(url)
+            const response = await data.JSON
+            setUserData(response)
         }
-        fetchData()
-    }
-        , [])
+        req()
+    }, [])
 
-
+    console.log(userData)
 
     return (
         <>

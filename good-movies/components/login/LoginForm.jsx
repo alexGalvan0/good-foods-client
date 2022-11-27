@@ -28,7 +28,7 @@ function LoginForm() {
                 <input onChange={userNameInput} type="text" className="form-control" placeholder="User name" value={username} />
             </div>
             <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label htmlFor="exampleInputPassword1">Password</label>
                 <input onChange={passwordInput} type="password" className="form-control" id="exampleInputPassword1" value={password} />
                 <button onClick={submit} type="button" className="btn btn-primary">Submit</button>
             </div>
