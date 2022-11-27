@@ -3,58 +3,50 @@ import axios from 'axios'
 
 function RegisterForm() {
 
-//http://127.0.0.1:8000/api/register
+    //http://127.0.0.1:8000/api/register
 
-const [username, setUsername] = useState("")
-const [fname, setFname] = useState("")
-const [lname, setLname] = useState("")
-const [email, setEmail] = useState("")
-const [password, setPassword] = useState("")
+    const [username, setUsername] = useState("")
+    const [fname, setFname] = useState("")
+    const [lname, setLname] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-const userNameInput = (e) => {
-    setUsername(e.target.value)
-}
-const FNameInput = (e) => {
-    setFname(e.target.value)
-}
-const LameInput = (e) => {
-    setLname(e.target.value)
-}
-const emailInput = (e) => {
-    setEmail(e.target.value)
-}
-const passwordInput = (e) => {
-    setPassword(e.target.value)
-}
+    const userNameInput = (e) => {
+        setUsername(e.target.value)
+    }
+    const FNameInput = (e) => {
+        setFname(e.target.value)
+    }
+    const LameInput = (e) => {
+        setLname(e.target.value)
+    }
+    const emailInput = (e) => {
+        setEmail(e.target.value)
+    }
+    const passwordInput = (e) => {
+        setPassword(e.target.value)
+    }
 
-const submit = async () => {
-    axios.post('http://127.0.0.1:8000/api/register',{
-        "username":username,
-        "first_name": fname,
-        "last_name":lname,
-        "email":email,
-        "password":password
-    })
-    setUsername("")
-    setFname("")
-    setLname("")
-    setEmail("")
-    setPassword("")
-
-    
-
-}
+    const submit = async () => {
+        axios.post('http://127.0.0.1:8000/api/register', {
+            "username": username,
+            "first_name": fname,
+            "last_name": lname,
+            "email": email,
+            "password": password
+        })
+    }
 
     return (
         <form>
-            <div class="col">
-                <input onChange={userNameInput} type="text" class="form-control" placeholder="User name" value={username} />
+            <div className="col">
+                <input onChange={userNameInput} type="text" className="form-control" placeholder="User name" value={username} />
             </div>
-            <div class="col">
-                <input onChange={FNameInput} type="text" class="form-control" placeholder="First name" value={fname} />
+            <div className="col">
+                <input onChange={FNameInput} type="text" className="form-control" placeholder="First name" value={fname} />
             </div>
-            <div class="col">
-                <input onChange={LameInput} type="text" class="form-control" placeholder="Last name" value={lname} />
+            <div className="col">
+                <input onChange={LameInput} type="text" className="form-control" placeholder="Last name" value={lname} />
             </div>
             <div className="form-group">
                 <label for="exampleInputEmail1">Email address</label>

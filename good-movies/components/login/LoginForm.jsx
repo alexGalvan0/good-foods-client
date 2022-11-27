@@ -19,6 +19,8 @@ function LoginForm() {
         })
         const res = await user
         localStorage.setItem('token',res.data.jwt)
+        window.location.href = "/profile";
+
     }
     return (
         <>
