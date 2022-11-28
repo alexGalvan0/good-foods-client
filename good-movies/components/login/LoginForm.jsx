@@ -13,12 +13,12 @@ function LoginForm() {
         setPassword(e.target.value)
     }
     const submit =  async () => {
-        const user = axios.post('http://127.0.0.1:8000/api/login',{
+        const user = axios.post('http://127.0.0.1:8000/api/token',{
             "username":username,
             "password":password
         })
         const res = await user
-        localStorage.setItem('token',res.data.jwt)
+        localStorage.setItem('token',res.data.access)
         window.location.href = "/profile";
 
     }
