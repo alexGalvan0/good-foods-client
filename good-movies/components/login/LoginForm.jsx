@@ -14,7 +14,7 @@ function LoginForm() {
         setUsername(e.target.value)
     }
     const passwordInput = (e) => {
-        setPassword(e.target.value)
+        setPassword(e.target.value) 
     }
     const submit =  async () => {
         const user = axios.post('http://127.0.0.1:8000/api/token',{
