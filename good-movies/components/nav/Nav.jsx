@@ -1,10 +1,15 @@
 import Link from 'next/link'
 
 function Nav() {
-  let user = localStorage.getItem('token')
+
+  let user;
+  if (typeof window !== "undefined") {
+    user = localStorage.getItem('token')
+    }
   let logout = () => {
     localStorage.clear('token')
   }
+
   return (
     <header className="p-3 text-bg-dark">
       <div className="container">
@@ -18,10 +23,6 @@ function Nav() {
             <li><Link href="/" className="nav-link px-2 text-white">FAQs</Link></li>
             <li><Link href="/" className="nav-link px-2 text-white">About</Link></li>
           </ul>
-
-          <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-            <input type="search" className="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search" />
-          </form>
 
           <div className="text-end">
 

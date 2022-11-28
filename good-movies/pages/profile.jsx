@@ -2,9 +2,6 @@ import axios from "axios"
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
-
-
-
 function Profile() {
     const token = () => {
         if (typeof window !== "undefined") {
@@ -29,9 +26,6 @@ function Profile() {
         req()
     }, [userData.first_name])
 
-    const logout = () =>{
-        localStorage.clear('token')
-    }
 if(userData === {}){
     return(
         <Loading />
@@ -42,9 +36,6 @@ if(userData === {}){
         <>
             <h1 className="text-light">
                 Hello, {userData.first_name} !
-                <Link href='/' onClick={logout}>
-                    Logout
-                </Link>
             </h1>
             
         </>

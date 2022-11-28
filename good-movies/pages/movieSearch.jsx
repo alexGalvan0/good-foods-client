@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Link from 'next/link'
 
 import Image from 'next/image'
 //http://img.omdbapi.com/?apikey=[yourkey]&
@@ -33,10 +34,7 @@ function MovieSearch() {
             <div className="row pb-5">
                 <div className="col-4">
                     <h2 className="text-light">Search Movie</h2>
-                    <label className="text-light">
-                        Movie Title:
-                        <input onChange={getSerach} value={movie} className="m-2" type="text" placeholder="Batman" />
-                    </label>
+                    <input type="search" onChange={getSerach} value={movie} className="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search" />
                     <button onClick={getMovies} className="btn btn-primary">Search</button>
                 </div>
             </div>
@@ -50,9 +48,9 @@ function MovieSearch() {
             </div>
             <div className="row">
                 <div className="col">
-                    {data.length> 0 ? movies.map((d) => (
-                        <Image key={d.imdbID} src={d.Poster} alt={d.Title} width={200} height={400}/>
-                    )):<></>}
+                    {data.length > 0 ? movies.map((d) => (
+                        <Link href='/movie'><Image key={d.imdbID} src={d.Poster} alt={d.Title} width={200} height={400} /></Link>
+                    )) : <></>}
                 </div>
             </div>
 
