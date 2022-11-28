@@ -27,7 +27,7 @@ function RegisterForm() {
         setPassword(e.target.value)
     }
 
-    const submit = async () => {
+    const submit = () => {
         axios.post('http://127.0.0.1:8000/api/register', {
             "username": username,
             "first_name": fname,

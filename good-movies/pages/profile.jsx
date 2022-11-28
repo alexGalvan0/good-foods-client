@@ -1,4 +1,5 @@
 import axios from "axios"
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 
@@ -15,25 +16,32 @@ function Profile() {
     }
     const config = { headers: { Authorization: `Bearer ${token()}` } }
 
-    const [userData, setUserData] = useState('')
+    const [userData, setUserData] = useState({})
 
     useEffect(() => {
         const url = "http://127.0.0.1:8000/api/user"
         const req = async () => {
             const data = axios.get(url,config)
-            const response = await data.JSON
-            setUserData(response)
-            console.log(userData)
+            const response = await data
+            setUserData(response.data[0])
         }
         req()
     }, [])
+
+    const logout = () =>{
+        localStorage.clear('token')
+    }
 
 
     return (
         <>
             <h1>
-                h2
+                {userData.first_name}
+                <Link href='/' onClick={logout}>
+                    Logout
+                </Link>
             </h1>
+            
         </>
     )
 
