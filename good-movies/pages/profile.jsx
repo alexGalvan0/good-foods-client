@@ -28,7 +28,7 @@ function Profile() {
             setUserData(response.data[0])
         }
         req()
-    }, [userData])
+    }, [userData.first_name])
 
     const logout = () =>{
         localStorage.clear('token')
