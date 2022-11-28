@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/custom.scss';
-import Loading from '../components/loading';
+
 import Script from 'next/script'
 
 import Nav from '../components/nav/Nav';
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossOrigin="anonymous" defer></Script>
       </Head>
       <Nav />
-      <Component {...pageProps} fallback={<Loading />} />
+      <Component {...pageProps} />
     </>
   )
 }
