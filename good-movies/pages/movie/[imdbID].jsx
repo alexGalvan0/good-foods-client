@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Image  from 'next/image';
 
 
 function MovieProfile() {
@@ -15,6 +16,7 @@ function MovieProfile() {
             const data = axios.get(url)
             const response = await data
             setMovieData(response.data)
+            console.log(movieData)
         }
         req()
 
@@ -22,7 +24,15 @@ function MovieProfile() {
 
 
     return (
-        <h1 className='text-light'>{movieData.Title}</h1>
+        
+            <div className="media">
+                <img src={movieData.Poster} className="mr-3" alt="movie" />
+                <div className="media-body text-light">
+                    <h5 className="mt-0 text-light">{movieData.Title}</h5>
+                    <p>{movieData.Plot}</p>
+                </div>
+            </div>
+        
     )
 }
 
