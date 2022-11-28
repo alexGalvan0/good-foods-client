@@ -1,8 +1,8 @@
 // Override default variables before the import
-$body-bg:white;
+$body-bg:#20262d;
 $theme-colors: (
-  "primary":#15181e
-
+  "primary":#15181e,
+  "alert": green
 );
 
 // Import Bootstrap and its default variables

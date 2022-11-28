@@ -35,8 +35,8 @@ function Profile() {
 
     return (
         <>
-            <h1>
-                {userData.first_name}
+            <h1 className="text-light">
+                Hello, {userData.first_name} !
                 <Link href='/' onClick={logout}>
                     Logout
                 </Link>

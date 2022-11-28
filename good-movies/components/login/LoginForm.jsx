@@ -25,11 +25,11 @@ function LoginForm() {
     return (
         <>
             <div className="col">
-                <input onChange={userNameInput} type="text" className="form-control" placeholder="User name" value={username} />
+                <input onChange={userNameInput} type="text" className="form-control text-light" placeholder="User name" value={username} />
             </div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
-                <input onChange={passwordInput} type="password" className="form-control" id="exampleInputPassword1" value={password} />
+                <input onChange={passwordInput} type="password" className="form-control text-light" id="exampleInputPassword1" placeholder="Password" value={password} />
                 <button onClick={submit} type="button" className="btn btn-primary">Submit</button>
             </div>
         </>
