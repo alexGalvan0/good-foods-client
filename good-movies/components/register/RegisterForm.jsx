@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios'
-
+import Link from'next/link'
 function RegisterForm() {
 
     //http://127.0.0.1:8000/api/register
@@ -36,6 +36,7 @@ function RegisterForm() {
             "password": password
         })
     }
+    // const login = () =>{} Login after registering
 
     return (
         <form>
@@ -57,7 +58,7 @@ function RegisterForm() {
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input onChange={passwordInput} type="password" className="form-control text-light" id="exampleInputPassword1" placeholder='Password' value={password} />
             </div>
-            <button onClick={submit} type="button" className="btn btn-primary">REGISTER!</button>
+            <Link href="/login"><button onClick={submit} type="button" className="btn btn-primary">REGISTER!</button></Link>
         </form>
     )
 }

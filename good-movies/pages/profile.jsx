@@ -1,6 +1,8 @@
 import axios from "axios"
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import Loading from "../components/loading"
+
 
 
 
@@ -26,12 +28,16 @@ function Profile() {
             setUserData(response.data[0])
         }
         req()
-    }, [])
+    }, [userData])
 
     const logout = () =>{
         localStorage.clear('token')
     }
-
+if(userData === {}){
+    return(
+        <Loading />
+    )
+}
 
     return (
         <>
