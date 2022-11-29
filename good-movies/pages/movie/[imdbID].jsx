@@ -31,9 +31,10 @@ function MovieProfile() {
                         <img src={movieData.Poster} className="mr-3" alt="movie" />
                         <div className="media-body">
                             <h3 className="mt-0 text-light">{movieData.Title}</h3>
-                            <p className='text-light'>{movieData.Plot}</p>
+                            <p className='text-light'>Plot: {movieData.Plot}</p>
                             <p className='text-light'>Director: {movieData.Director}</p>
                             <p className='text-light'>Rated: {movieData.Rated}</p>
+                            <p className='text-light'>Released: {movieData.Released}</p>
                         </div>
                     </div>
 
