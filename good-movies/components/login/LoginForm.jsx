@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useState } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 
@@ -27,12 +26,12 @@ function LoginForm() {
     }
     return (
         <>
-            <form  className='d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
+            <div  className=' container-fluid d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
                 <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="User name" value={username} />
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
                 <button onClick={submit} type="submit" className="btn btn-primary">Login</button>
-            </form>
+            </div>
         </>
     )
 }
