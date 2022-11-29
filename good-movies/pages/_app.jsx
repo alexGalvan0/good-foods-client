@@ -1,11 +1,8 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/custom.scss';
-
 import Script from 'next/script'
-
 import Nav from '../components/nav/Nav';
-
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {

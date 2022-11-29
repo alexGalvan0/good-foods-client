@@ -25,7 +25,6 @@ function MovieSearch() {
 
 
     let tenData = data
-    let movies = tenData
 
 
 
