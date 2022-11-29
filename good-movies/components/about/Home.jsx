@@ -1,5 +1,5 @@
 import Link from 'next/link'
-function About() {
+function Home() {
     return (
         <main className="text-light" role="main">
 
@@ -35,4 +35,4 @@ function About() {
     )
 }
 
-export default About;
+export default Home;

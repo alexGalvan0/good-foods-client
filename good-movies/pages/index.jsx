@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import About from '../components/about/About'
+import Home from '../components/about/Home'
 
-export default function Home() {
+export default function Index() {
   return (
     <div>
       {/* <section className="jumbotron text-center">
@@ -16,7 +16,7 @@ export default function Home() {
           
         </div>
       </section> */}
-      <About />
+      <Home />
 
     </div>
   )
