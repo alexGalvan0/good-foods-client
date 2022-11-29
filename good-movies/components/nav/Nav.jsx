@@ -1,11 +1,15 @@
 import Link from 'next/link'
+import { useState, useEffect } from 'react';
 
 function Nav() {
 
-  let user;
-  if (typeof window !== "undefined") {
-    user = localStorage.getItem('token')
-    }
+  const [user, setUser] = useState('')
+  useEffect(() => {setUser(localStorage.getItem('token'))})
+
+  // let user;
+  // if (typeof window !== "undefined") {
+  //   user = localStorage.getItem('token')
+  //   }
   let logout = () => {
     localStorage.clear('token')
   }

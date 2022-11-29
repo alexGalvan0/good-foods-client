@@ -9,7 +9,7 @@ function MovieProfile() {
     const router = useRouter();
     const [movieData, setMovieData] = useState({})
     const { imdbID } = router.query;
-    let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
+    let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}&plot=full`
 
     useEffect(() => {
         const req = async () => {
