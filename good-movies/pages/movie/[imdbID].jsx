@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Image  from 'next/image';
+import Image from 'next/image';
 
 
 function MovieProfile() {
@@ -24,15 +24,25 @@ function MovieProfile() {
 
 
     return (
-        
-            <div className="media">
-                <img src={movieData.Poster} className="mr-3" alt="movie" />
-                <div className="media-body text-light">
-                    <h5 className="mt-0 text-light">{movieData.Title}</h5>
-                    <p>{movieData.Plot}</p>
+        <div className="container rounded border bg-secondary p-2">
+            <div className="row">
+                <div className="col">
+                    <div className="media">
+                        <img src={movieData.Poster} className="mr-3" alt="movie" />
+                        <div className="media-body">
+                            <h3 className="mt-0 text-light">{movieData.Title}</h3>
+                            <p className='text-light'>{movieData.Plot}</p>
+                            <p className='text-light'>Director: {movieData.Director}</p>
+                            <p className='text-light'>Rated: {movieData.Rated}</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        
+        </div>
+
+
+
     )
 }
 

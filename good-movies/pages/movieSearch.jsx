@@ -47,9 +47,9 @@ function MovieSearch() {
                 </div>
             </div>
             <div className="row">
-                <div className="col">
+                <div className="col mb-5">
                     {data.length > 0 ? movies.map((d) => (
-                        <Link href={`/movie/${d.imdbID}`}><Image key={d.imdbID} src={d.Poster} alt={d.Title} width={200} height={400} /></Link>
+                        <Link href={`/movie/${d.imdbID}`}><Image key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
                     )) : <></>}
                 </div>
             </div>
