@@ -12,20 +12,20 @@ function MovieSearch() {
     const [data, setData] = useState([]);
     const [movie, setMovie] = useState('')
     let title = movie.replaceAll(' ', '+')
-    let url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${title}`
+    let url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${title}&type=movie`
 
     const getMovies = async () => {
         let req = axios.get(url)
         let resp = await req
-        setData([resp.data.Search])
+        setData(resp.data.Search)
     }
     const getSerach = (e) => {
         setMovie(e.target.value)
     }
 
 
-    let tenData = data.slice(0, 11)
-    let movies = tenData[0]
+    let tenData = data
+    let movies = tenData
 
 
 
@@ -48,8 +48,8 @@ function MovieSearch() {
             </div>
             <div className="row">
                 <div className="col mb-5">
-                    {data.length > 0 ? movies.map((d) => (
-                        <Link href={`/movie/${d.imdbID}`}><Image key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
+                    {data.length > 0 ? data.map((d) => (
+                        <Link href={`/movie/${d.imdbID}`}><img key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
                     )) : <></>}
                 </div>
             </div>
