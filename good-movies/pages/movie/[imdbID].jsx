@@ -24,7 +24,7 @@ function MovieProfile() {
 
 
     return (
-        <div className="container rounded border bg-secondary p-2">
+        <div className="container rounded border bg-primary p-2 my-5">
             <div className="row">
                 <div className="col">
                     <div className="media">
