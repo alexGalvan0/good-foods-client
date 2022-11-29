@@ -1,31 +1,33 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import useUser from "../../hooks/useUser"
 import ButtonGroup from '../../components/movies/ButtonGroup';
+import axios from 'axios';
 
 
 function MovieProfile() {
     const API_KEY = "b29c9a1a"
     const router = useRouter();
 
-    const [token, SetToken] = useState({})
+
     const [movieData, setMovieData] = useState({})
-    const [userData, setUserData] = useState({})
+
 
     const { imdbID } = router.query;
  
     useEffect(() => {
-        SetToken(localStorage.getItem('token'))
         const req = async () => {
             let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}&plot=full`
             const data = axios.get(url)
             const response = await data
             setMovieData(response.data)
-            
         }
         req()
 
     }, [])
+
+    const user = useUser()
+    console.log(user.id)
 
     return (
         <div className="container rounded border bg-primary p-2 my-5">
