@@ -7,7 +7,7 @@ import ButtonGroup from '../../components/movies/ButtonGroup';
 import axios from 'axios';
 
 
-function MovieProfile({mData, user}) {
+function MovieProfile({mData, uData}) {
     const API_KEY = "b29c9a1a"
 
     const router = useRouter();
@@ -30,7 +30,7 @@ function MovieProfile({mData, user}) {
 
 
     mData = movieData
-    user = useUser()
+    uData = useUser()
     return (
         <div className="container rounded border bg-primary p-2 my-5 text-center text-lg-start">
             <div className="row">
@@ -43,9 +43,10 @@ function MovieProfile({mData, user}) {
                             <p className='text-light'>Director: {movieData.Director}</p>
                             <p className='text-light'>Rated: {movieData.Rated}</p>
                             <p className='text-light'>Released: {movieData.Released}</p>
+                            <p className='text-light'>Runtime: {movieData.Runtime}</p>
                         </div>
                     </div>
-                    <ButtonGroup mdata={movieData} uData={user} />
+                    <ButtonGroup mData={mData} uData={uData} />
                 </div>
             </div>
         </div>

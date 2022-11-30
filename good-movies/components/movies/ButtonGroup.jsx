@@ -1,8 +1,18 @@
-function ButtonGroup({mData, user}) {
+import axios from "axios";
+import { useState } from "react";
+
+function ButtonGroup({mData, uData}) {
+
+    const [movieData, setMovieData] = useState(null)
 
 
-    const addMovieToDb = () => {
-        console.log(mData)
+    const addMovieToDb = async () => {
+        const url = 'http://127.0.0.1:8000/api/movies'
+        const config =''
+        const data = axios.get(url)
+        const response = await data
+        setMovieData(response)
+        console.log(movieData)
     }
 
     return (
