@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+
+
 import useUser from "../../hooks/useUser"
 import ButtonGroup from '../../components/movies/ButtonGroup';
 import axios from 'axios';
@@ -28,9 +30,10 @@ function MovieProfile() {
 
     const user = useUser()
     console.log(user.id)
+    console.log(movieData)
 
     return (
-        <div className="container rounded border bg-primary p-2 my-5">
+        <div className="container rounded border bg-primary p-2 my-5 text-center text-lg-start">
             <div className="row">
                 <div className="col">
                     <div className="media">

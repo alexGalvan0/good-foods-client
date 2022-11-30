@@ -1,10 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Link from 'next/link'
-
-import Image from 'next/image'
-//http://img.omdbapi.com/?apikey=[yourkey]&
-
+import useUser from "../../hooks/useUser";
 
 function MovieSearch() {
     const API_KEY = "b29c9a1a"
@@ -23,18 +20,13 @@ function MovieSearch() {
         setMovie(e.target.value)
     }
 
-
-    let tenData = data
-
-
-
     return (
-        <div className="container">
+        <div className="container border rounded mt-5">
             <div className="row pb-5">
-                <div className="col-4">
+                <div className="col col-lg-4">
                     <h2 className="text-light">Search Movie</h2>
-                    <input type="search" onChange={getSerach} value={movie} className="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search" />
-                    <button onClick={getMovies} className="btn btn-primary">Search</button>
+                    <input type="search" onChange={getSerach} value={movie} className="form-control form-control-dark text-bg-light mb-2" placeholder="Search..." aria-label="Search" />
+                    <button onClick={getMovies} className="btn btn-primary text-light">Search</button>
                 </div>
             </div>
 
@@ -46,7 +38,7 @@ function MovieSearch() {
                 </div>
             </div>
             <div className="row">
-                <div className="col mb-5">
+                <div className="col mb-5 border d-flex gap-5 p-3 rounded bg-black" style={{maxWidth:'90vw',overflow: 'hidden',overflow: 'auto'}}>
                     {data.length > 0 ? data.map((d) => (
                         <Link href={`/movie/${d.imdbID}`}><img key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
                     )) : <></>}
