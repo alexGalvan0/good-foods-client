@@ -16,11 +16,8 @@ function Profile() {
       const response = request;
       setData(response.data);
     };
-    try {
-      getData();
-    } catch {
-      return;
-    }
+    user.id != undefined ? getData(): null
+
   }, [user]);
 
   return (
@@ -58,7 +55,8 @@ function Profile() {
             width: "30rem",
           }}
         >
-          {data.map((m) => (
+          {data.length > 0?
+          data.map((m) => (
             <>
               <div className="d-flex text-center">
                 <Image src={m.poster} alt="" height={200} width={150} />
@@ -73,8 +71,10 @@ function Profile() {
               </div>
               <div className="">
                 <button
-                  onClick={ async () => {
-                    axios.delete(`http://127.0.0.1:8000/api/deleteUserLikedMovie/${user.id}/${m.id}/`)
+                  onClick={async () => {
+                    let request =  axios.delete(`http://127.0.0.1:8000/api/addLikedList/${user.id}/${m.imdbId}/`);
+                    let response = await request
+                    setData(response.data);
                   }}
                   className="btn btn-lg btn-alert text-light bold"
                 >
@@ -83,7 +83,7 @@ function Profile() {
               </div>
               <hr className="text-light" />
             </>
-          ))}
+          )):null}
         </div>
       </div>
     </div>

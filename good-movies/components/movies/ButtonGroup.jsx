@@ -6,9 +6,6 @@ function ButtonGroup({mData}) {
     const user = useUser()
     const url = 'http://127.0.0.1:8000/api/movies/'
 
-    const [movieData, setMovieData] = useState([])
-
-
     const config = {
         title: mData.Title,
         plot: mData.Plot,
