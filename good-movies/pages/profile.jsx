@@ -35,12 +35,19 @@ function Profile() {
                             <Link href='movie/search'><button className="btn btn-alert btn-lg text-light" type="button">Search Movies</button></Link>
                         </div>
                     </div>
+                </div>
+            </div> 
 
-                    {data.map((m) => (
+            <div className="row">
+                <h3 className="text-light">Liked: </h3>
+                <div className="col text-center mb-5">
+                {data.map((m) => (
                                 <Image src={m.poster} alt='' height={200} width={150}/>
                             ))}
                 </div>
-            </div> 
+            </div>
+
+
         </div>
     )
 }
