@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
+import style from './Nav.module.scss'
 
 function Nav() {
 
@@ -15,6 +16,7 @@ function Nav() {
   }
 
   return (
+    <div className={style.navbar}>
     <header className="p-3 text-bg-dark">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -41,6 +43,7 @@ function Nav() {
         </div>
       </div>
     </header>
+    </div>
   )
 }
 

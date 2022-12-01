@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from "react"
 import axios from "axios"
+import MovieCard from "../components/movies/MovieCard"
 
 function Profile() {
     let user = useUser()
@@ -12,38 +13,50 @@ function Profile() {
 
     useEffect(() => {
         const getData = async () => {
-            const request =  await axios.get(url)
+            const request = await axios.get(url)
             const response = request
             setData(response.data)
         }
-        try{
+        try {
             getData()
-        }catch{
-             return
+        } catch {
+            return
         }
     }, [user])
 
 
-    return ( 
+    return (
+
         <div className="container mt-5">
-            <div className="row"> 
+            <div className="row">
                 <div className="col">
                     <div className="p-5 mb-4 bg-primary rounded-3">
                         <div className="container-fluid py-5">
-                            <h1 className="display-5 fw-bold text-light">Hello {user.first_name}!</h1>
+                            <h1 className="display-5 fw-bold text-light">@ {user.username}</h1>
 
                             <Link href='movie/search'><button className="btn btn-alert btn-lg text-light" type="button">Search Movies</button></Link>
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
 
             <div className="row">
                 <h3 className="text-light">Liked: </h3>
-                <div className="col text-center mb-5">
-                {data.map((m) => (
-                                <Image src={m.poster} alt='' height={200} width={150}/>
-                            ))}
+                <div className=" text-center mb-5">
+                    {data.map((m) => (
+                        <>
+                            <div className="d-flex" >
+                                <Image src={m.poster} alt='' height={200} width={150} />
+                                <div className="d-flex  row  align-items-center">
+                                    <h5 className="text-light">Title: {m.title}</h5>
+                                    <p className="text-light">Director: {m.director}</p>
+                                    <p className="text-light">Year: {m.year}</p>
+                                </div>
+                            </div>
+                            <hr className="text-light" />
+                        </>
+                    ))}
+
                 </div>
             </div>
 
