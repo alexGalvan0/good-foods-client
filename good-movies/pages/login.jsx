@@ -9,7 +9,6 @@ function Login() {
                     <div className="pb-5 text-center">
                         <LoginForm />
                     </div>
-                    <Image className="rounded" src="/../public/img/home-cinema.jpg" alt="camera" width={400} height={300}></Image>
                 </div>
             </div>
         </div>

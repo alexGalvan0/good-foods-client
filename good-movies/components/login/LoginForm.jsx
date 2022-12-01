@@ -15,23 +15,26 @@ function LoginForm() {
     const passwordInput = (e) => {
         setPassword(e.target.value)
     }
-    const submit = async () => {
+    const submit = async (e) => {
         const user = axios.post('http://127.0.0.1:8000/api/token', {
             "username": username,
             "password": password
         })
         const res = await user
         localStorage.setItem('token', res.data.access)
+        e.preventDefault();
         router.push('/profile');
     }
     return (
         <>
-            <div  className=' container-fluid d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
+            
+            <div  className=' container d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
                 <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="User name" value={username} />
-                <label htmlFor="exampleInputPassword1">Password</label>
                 <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
-                <button onClick={submit} type="submit" className="btn btn-primary">Login</button>
+                <button onClick={submit}className="btn btn-primary">Login</button>
             </div>
+
+            
         </>
     )
 }

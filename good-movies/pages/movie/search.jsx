@@ -33,12 +33,12 @@ function MovieSearch() {
 
 
             <div className="row">
-                <div className="col">
+                <div className="col ">
                     <h2 className="text-light">Movies: </h2>
                 </div>
             </div>
-            <div className="row">
-                <div className="col mb-5 border d-flex gap-5 p-3 rounded bg-black" style={{maxWidth:'90vw',overflow: 'hidden',overflow: 'auto'}}>
+            <div className="row mb-5 pb-5">
+                <div className=" mb-5 d-flex gap-5 p-3 rounded bg-black" style={{maxWidth:'100vw',overflow: 'hidden',overflow: 'auto'}}>
                     {data.splice(0,5).length > 0 ? data.map((d) => (
                         <Link href={`/movie/${d.imdbID}`}><img key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
                     )) : <></>}

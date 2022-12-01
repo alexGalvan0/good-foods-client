@@ -32,7 +32,7 @@ function MovieProfile({mData, uData}) {
     mData = movieData
     uData = useUser()
     return (
-        <div className="container rounded border bg-primary p-2 my-5 text-center text-lg-start">
+        <div className="container rounded border bg-primary p-2 my-5 text-center text-lg-start mb-5 pb-5">
             <div className="row">
                 <div className="col">
                     <div className="media">
