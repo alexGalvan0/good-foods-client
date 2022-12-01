@@ -7,9 +7,7 @@ import Head from 'next/head'
 import useUser from '../hooks/useUser';
 import Link from 'next/link';
 
-function MyApp({ Component, pageProps }) {
-  const user = useUser()
-  
+function MyApp({ Component, pageProps }) {  
   return (
     <div style={{ maxWidth: '100vw' }}>
       <Head class="h-11 standalone:h-22">
