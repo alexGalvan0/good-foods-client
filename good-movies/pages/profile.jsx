@@ -27,7 +27,7 @@ function Profile() {
 
     return (
 
-        <div className="container mt-5">
+        <div className="container mt-5 mb-5 pb-5">
             <div className="row">
                 <div className="col">
                     <div className="p-5 mb-4 bg-primary rounded-3">
@@ -43,11 +43,11 @@ function Profile() {
             <div className="row">
                 <h3 className="text-light">Liked: </h3>
                 <div className=" text-center mb-5">
-                    {data.map((m) => (
+                    {data.splice(0,5).map((m) => (
                         <>
-                            <div className="d-flex" >
+                            <div className="d-flex text-center" >
                                 <Image src={m.poster} alt='' height={200} width={150} />
-                                <div className="d-flex  row  align-items-center">
+                                <div className="d-flex  row  align-items-center" style={{width:'20rem'}}>
                                     <h5 className="text-light">Title: {m.title}</h5>
                                     <p className="text-light">Director: {m.director}</p>
                                     <p className="text-light">Year: {m.year}</p>

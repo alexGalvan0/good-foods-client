@@ -21,7 +21,7 @@ function MovieSearch() {
     }
 
     return (
-        <div className="container border rounded mt-5">
+        <div className="container mt-5 pt-5">
             <div className="row pb-5">
                 <div className="col col-lg-4">
                     <h2 className="text-light">Search Movie</h2>
@@ -39,7 +39,7 @@ function MovieSearch() {
             </div>
             <div className="row">
                 <div className="col mb-5 border d-flex gap-5 p-3 rounded bg-black" style={{maxWidth:'90vw',overflow: 'hidden',overflow: 'auto'}}>
-                    {data.length > 0 ? data.map((d) => (
+                    {data.splice(0,5).length > 0 ? data.map((d) => (
                         <Link href={`/movie/${d.imdbID}`}><img key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
                     )) : <></>}
                 </div>

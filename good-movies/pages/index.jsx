@@ -4,9 +4,8 @@ import About from './about'
 
 export default function Index() {
   return (
-    <div>
+    <div className='pt-5 mt-5'>
       <Home />
-      <About />
     </div>
   )
 }
