@@ -25,7 +25,6 @@ function ButtonGroup({mData}) {
     }
 
     const addMovieToDb = async () => {
-        console.log(mData)
         try{
         await axios.post(url, config)
         } catch {
@@ -37,7 +36,6 @@ function ButtonGroup({mData}) {
         await addMovieToDb()
         let request = axios.post(`http://127.0.0.1:8000/api/addLikedList/${user.id}/${mData.imdbID}/`)
         let response = await request
-        console.log(response.data)
     }
 
 

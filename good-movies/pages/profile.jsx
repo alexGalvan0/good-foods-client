@@ -4,22 +4,23 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 function Profile() {
-    const user = useUser()
-    const url = `http://127.0.0.1:8000/api/getUserLikedMovies/${26}`
+    let user = useUser()
+    const url = `http://127.0.0.1:8000/api/getUserLikedMovies/${user.id}`
+
     const [data, setData] = useState('')
 
     useEffect(() => {
-        let userId = user.id
         const getData = async () => {
-            const request = axios.get(url)
-            const response = await request
-            console.log(user.id)
+            console.log(user)
+            const request =  await axios.get(url)
+            const response = request
+            setData(response.data)
         }
         getData()
-    }, [])
+    }, [user])
 
 
-    return (
+    return ( 
         <div className="container mt-5">
             <div className="row">
                 <div className="col">
