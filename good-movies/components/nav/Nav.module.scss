@@ -4,6 +4,12 @@
     bottom: 0;
 }
 
+floating-search {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+}
+
 @media (min-width : 1024px) {
     .navbar{
         position:absolute;

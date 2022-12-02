@@ -21,8 +21,10 @@ function MyApp({ Component, pageProps }) {
       <AppBar />
       <Component {...pageProps} />
       {/* <Nav /> */}
+
       <FloatingActionButtons />
       <SimpleBottomNavigation />
+
     </div>
   )
 }

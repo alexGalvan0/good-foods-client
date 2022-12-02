@@ -12,10 +12,12 @@ export default function FloatingActionButtons() {
         router.push('/movie/search');
     }
   return (
-    <Box sx={{ '& > :not(style)': { m: 1 } }}>
+    <div className='text-end floating-search'>
+    <Box sx={{ '& > :not(style)': { mr: 3 } }}>
       <Fab onClick={goToSearchMovie} color="primary" aria-label="add">
         <SearchIcon />
       </Fab>
     </Box>
+    </div>
   );
 }
