@@ -1,9 +1,36 @@
 // Override default variables before the import
-$body-bg:#20262d;
+$body-bg:#111726;
 $theme-colors: (
-  "primary":#15181e,
-  "alert": green
+  "primary":#A2AEBB,
+  "dark":#313638,
+  "alert": #E4B363,
+  "light":white,
 );
 
+.search{
+  width: auto;
+  position: fixed;
+  top:0;
+}
+.name{
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+
+@media (min-width : 1024px) {
+  .name{
+      display: none
+  }
+}
+@media screen and (display-mode: standalone) {
+  header {
+    height: 88px !important;
+  }
+}
+
+header {
+  padding-top: env(safe-area-inset-top);
+}
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
