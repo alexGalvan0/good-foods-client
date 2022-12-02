@@ -14,8 +14,8 @@ function Hero() {
         </div>
         <div className="row">
           <Stack spacing={2} direction="column">
-            <Link href='/register'><Button color="success" variant="contained">GET STARTED — ITS FREE!</Button></Link>
-            <Link href="/login"><Button variant="contained">Login</Button></Link>
+            <Link style={{ textDecoration: 'none' }} href='/register'><Button color="success" variant="contained">GET STARTED — ITS FREE!</Button></Link>
+            <Link style={{ textDecoration: 'none' }} href="/login"><Button variant="contained">Login</Button></Link>
           </Stack>
           {/* <Link href="/register">
               <button className="btn btn-alert my-2 text-light">
