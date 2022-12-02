@@ -12,6 +12,7 @@ import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { useRouter } from 'next/router'
+import ImageAvatars from './ImageAvatars';
 
 export default function MenuAppBar() {
   const router = useRouter();
@@ -52,6 +53,7 @@ const goHome = (e) => {
           </Typography>
           {auth && (
             <div>
+              <ImageAvatars />
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -61,6 +63,7 @@ const goHome = (e) => {
                 color="inherit"
               >
                 <AccountCircle />
+  
               </IconButton>
               <Menu
                 id="menu-appbar"

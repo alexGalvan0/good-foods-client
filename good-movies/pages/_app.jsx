@@ -2,12 +2,12 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/custom.scss';
 import Script from 'next/script'
-import Nav from '../components/nav/Nav';
+import FloatingActionButtons from '../components/nav/FloatingActionButton';
 import Head from 'next/head'
 import AppBar from '../components/nav/MenuAppBar';
 import SimpleBottomNavigation from '../components/nav/BottomNav';
 
-function MyApp({ Component, pageProps }) {  
+function MyApp({ Component, pageProps }) {
   return (
     <div style={{ maxWidth: '100vw' }}>
       <Head class="h-11 standalone:h-22">
@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
       <AppBar />
       <Component {...pageProps} />
       {/* <Nav /> */}
+      <FloatingActionButtons />
       <SimpleBottomNavigation />
     </div>
   )
