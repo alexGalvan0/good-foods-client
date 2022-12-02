@@ -8,7 +8,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LoginIcon from '@mui/icons-material/Login';
-import Link from 'next/link';
+import FloatingActionButtons from './FloatingActionButton';
 import { useEffect, useState } from 'react';
 
 
@@ -31,19 +31,24 @@ export default function SimpleBottomNavigation() {
         e.preventDefault();
         router.push('/');
     }
-    let logout = () => {
-        localStorage.clear('token')
-    }
     let login = (e) => {
         e.preventDefault();
         router.push('/login');
     }
 
+    let logout = (e) => {
+        localStorage.clear('token')
+        login()
+    }
+
+
     return (
 
 
 
+
         <Box style={{ position: 'fixed', bottom: '0', width: '100vw', }}>
+            <FloatingActionButtons />
             <BottomNavigation
                 showLabels
                 value={value}
@@ -53,10 +58,9 @@ export default function SimpleBottomNavigation() {
             >
                 <BottomNavigationAction onClick={goHome} label="Home" icon={<HomeIcon />} />
                 <BottomNavigationAction onClick={goToSearchMovie} label="search" icon={<SearchIcon />} />
-                {user ? <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon />} /> :null}
-                {user ? <BottomNavigationAction onClick={(logout,login)} label="Logout" icon={<LogoutIcon />} /> :
+                {user ? <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon />} /> : null}
+                {user ? <BottomNavigationAction onClick={logout} label="Logout" icon={<LogoutIcon />} /> :
                     <BottomNavigationAction onClick={login} label="Login" icon={<LoginIcon />} />}
-
             </BottomNavigation>
         </Box>
 

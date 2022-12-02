@@ -9,7 +9,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { useRouter } from 'next/router'
-import ImageAvatars from './ImageAvatars';
+import FloatingActionButtons from './FloatingActionButton';
 
 export default function MenuAppBar() {
   const router = useRouter();
