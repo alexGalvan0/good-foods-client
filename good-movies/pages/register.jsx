@@ -1,5 +1,5 @@
 import RegisterForm from "../components/register/RegisterForm"
-import Image from 'next/image'
+
 function Register() {
     return (
         <div className="container">

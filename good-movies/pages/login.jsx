@@ -1,5 +1,4 @@
 import LoginForm from "../components/login/LoginForm"
-import Image from "next/image";
 function Login() {
     return (
         <div className="container flex-column justify-content-center mt-5 pt-5">

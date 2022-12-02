@@ -6,6 +6,7 @@ import Nav from '../components/nav/Nav';
 import Head from 'next/head'
 import useUser from '../hooks/useUser';
 import Link from 'next/link';
+import SimpleBottomNavigation from '../components/nav/BottomNav';
 
 function MyApp({ Component, pageProps }) {  
   return (
@@ -19,7 +20,8 @@ function MyApp({ Component, pageProps }) {
       <div className='bg-dark'>
       </div>
       <Component {...pageProps} />
-      <Nav />
+      {/* <Nav /> */}
+      <SimpleBottomNavigation />
     </div>
   )
 }
