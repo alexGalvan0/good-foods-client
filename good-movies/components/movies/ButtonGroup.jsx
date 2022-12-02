@@ -43,8 +43,8 @@ function ButtonGroup({ mData }) {
     >
       <Link href="/profile">
         <button
-          type="button"
           onClick={likeMovie}
+          type="button"
           className="btn btn-alert text-light"
         >
           Like
@@ -61,17 +61,3 @@ function ButtonGroup({ mData }) {
 }
 
 export default ButtonGroup;
-
-// title = models.CharField(max_length=255)
-// plot = models.TextField(max_length=1000)
-// cast = models.CharField(max_length=255)
-// poster = models.URLField()
-// rated = models.CharField(max_length=10)
-// director = models.CharField(max_length=255)
-// date_released = models.DateField()
-// roten_score = models.IntegerField()
-
-// #added
-// run_time = models.IntegerField()
-// imdbId = models.CharField(max_length=255, unique=True)
-// year = models.IntegerField()
