@@ -54,7 +54,7 @@ export default function SimpleBottomNavigation() {
                 <BottomNavigationAction onClick={goHome} label="Home" icon={<HomeIcon />} />
                 <BottomNavigationAction onClick={goToSearchMovie} label="search" icon={<SearchIcon />} />
                 {user ? <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon />} /> :null}
-                {user ? <BottomNavigationAction onClick={logout} label="Logout" icon={<LogoutIcon />} /> :
+                {user ? <BottomNavigationAction onClick={(logout,login)} label="Logout" icon={<LogoutIcon />} /> :
                     <BottomNavigationAction onClick={login} label="Login" icon={<LoginIcon />} />}
 
             </BottomNavigation>
