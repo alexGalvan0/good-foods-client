@@ -4,8 +4,10 @@ import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
+import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LoginIcon from '@mui/icons-material/Login';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -31,7 +33,11 @@ export default function SimpleBottomNavigation() {
     }
     let logout = () => {
         localStorage.clear('token')
-      }
+    }
+    let login = (e) => {
+        e.preventDefault();
+        router.push('/login');
+    }
 
     return (
 
@@ -47,10 +53,9 @@ export default function SimpleBottomNavigation() {
             >
                 <BottomNavigationAction onClick={goHome} label="Home" icon={<HomeIcon />} />
                 <BottomNavigationAction onClick={goToSearchMovie} label="search" icon={<SearchIcon />} />
-                {user ? <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon />} /> :
-                    <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon />} />}
-                {user ? <Link href='/'><button onClick={logout} type="button" className="btn btn-primary text-light me-2">Logout</button></Link> :
-                    <Link href='/login'><button type="button" className="btn btn-primary text-light me-2">Login</button></Link>}
+                {user ? <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon />} /> :null}
+                {user ? <BottomNavigationAction onClick={logout} label="Logout" icon={<LogoutIcon />} /> :
+                    <BottomNavigationAction onClick={login} label="Login" icon={<LoginIcon />} />}
 
             </BottomNavigation>
         </Box>

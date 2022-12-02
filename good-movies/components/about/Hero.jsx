@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <div className="jumbotron p-4 p-md-5 text-white rounded bg-wild">
+    <div className="jumbotron p-4 p-md-5 text-white rounded d-flex justify-content-center">
       <div className="col-md-6 px-0 text-center">
         <h1 style={{fontSize:'4rem'}}>GOOD MOVIES</h1>
         <div className="container">
@@ -11,7 +11,7 @@ function Hero() {
           <p>Tell your friends what’s good.</p>
         </div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col d-flex flex-column justify-content-center ">
             <Link href="/register">
               <button className="btn btn-alert my-2 text-light">
                 GET STARTED — ITS FREE!

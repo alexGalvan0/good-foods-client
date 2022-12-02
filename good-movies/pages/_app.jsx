@@ -4,8 +4,7 @@ import '../styles/custom.scss';
 import Script from 'next/script'
 import Nav from '../components/nav/Nav';
 import Head from 'next/head'
-import useUser from '../hooks/useUser';
-import Link from 'next/link';
+import AppBar from '../components/nav/MenuAppBar';
 import SimpleBottomNavigation from '../components/nav/BottomNav';
 
 function MyApp({ Component, pageProps }) {  
@@ -19,6 +18,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <div className='bg-dark'>
       </div>
+      <AppBar />
       <Component {...pageProps} />
       {/* <Nav /> */}
       <SimpleBottomNavigation />
