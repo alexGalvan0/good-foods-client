@@ -32,7 +32,7 @@ export default function SimpleBottomNavigation() {
         router.push('/');
     }
     let login = (e) => {
-        e.preventDefault();
+
         router.push('/login');
     }
 
@@ -48,7 +48,7 @@ export default function SimpleBottomNavigation() {
 
 
         <Box style={{ position: 'fixed', bottom: '0', width: '100vw', }}>
-            <div class='mb-2'>
+            <div class='mb-4'>
                 <FloatingActionButtons />
             </div>
             <BottomNavigation
