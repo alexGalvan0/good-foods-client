@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState } from "react"
+import Toggle from "../../components/search/Toggle";
 import Link from 'next/link'
 
 
@@ -34,6 +35,7 @@ function MovieSearch() {
         <div className="container mt-5 pt-5">
             <div className="row pb-5">
                 <div className="col col-lg-4">
+                    <Toggle />
                     <h2 className="text-light">Search Movie</h2>
                     <input type="search" onChange={getSerach} value={movie} className="form-control form-control-dark text-bg-light mb-2" placeholder="Search..." aria-label="Search" />
                     <button onClick={displayResupts} className="btn btn-primary text-light">Search</button>
