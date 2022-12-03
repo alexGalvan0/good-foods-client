@@ -8,9 +8,9 @@ function Login() {
             <div className="row">
                 <div className="d-flex justify-content-around flex-column flex-md-row p-5">
                     <div className="pb-5 text-center">
-                        {/* <LoginForm /> */}
-                        <SignIn />
-                        {/* <GoogleLogin /> */}
+                        <LoginForm />
+                        {/* <SignIn /> */}
+                        <GoogleLogin />
 
                     </div>
                 </div>

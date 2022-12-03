@@ -27,11 +27,11 @@ function Profile() {
           <div className="p-5 mb-4 bg-primary rounded-3">
             <div className="container-fluid py-5">
               <h1 className="display-5 fw-bold text-light">
-                @ {user.username}
+                @ {user.username? user.username: localStorage.getItem('firstName')} 
               </h1>
               <h6 className="text-light"> Movies Liked: {data.length}</h6>
 
-              <Link href="movie/search">
+              <Link href="movie/search"> 
                 <button
                   className="btn btn-alert btn-lg text-light"
                   type="button"

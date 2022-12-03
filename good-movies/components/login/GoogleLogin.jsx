@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react"
+import jwt_decode from "jwt-decode";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import { useRouter } from 'next/router'
 function GoogleLogin() {
-
+    const route = useRouter()
     const [user, setUser] = useState({})
+    const [firstName, setFirstName] = useLocalStorage('firstName', 'Friend')
     useEffect(() => {
         /* global google*/
         const handleCallbackResponse = (response) => {
-            localStorage.setItem('token',response.credential)
+            localStorage.setItem('token', response.credential)
             let userObject = jwt_decode(response.credential);
-            SpeechSynthesisUtterance(userObject)
+            setUser(userObject)
+            console.log(user)
+            setFirstName(user.given_name)
+
+            route.push('/profile')
 
         }
 
