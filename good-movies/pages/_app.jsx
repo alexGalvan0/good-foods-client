@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode='wait'>
       <motion.div
         key={router.route}
         initial='initialState'
@@ -31,15 +31,16 @@ function MyApp({ Component, pageProps }) {
         }}
       >
         <div style={{ maxWidth: '100vw' }}>
-          <Head class="h-11 standalone:h-22">
-            <script src="https://accounts.google.com/gsi/client" async defer></script>
+          <Head className="h-11 standalone:h-22">
+
             <link rel="manifest" href="/site.webmanifest" />
             <Script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js" defer></Script>
 
             <Script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous" defer></Script>
             <Script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossOrigin="anonymous" defer></Script>
           </Head>
-
+          <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+          <script src="https://accounts.google.com/gsi/client" async defer></script>
           <div className='bg-dark'>
           </div>
 
@@ -61,22 +62,3 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp
 
-
-
-{/* <motion.div
-          key={router.route}
-          initial='initialState'
-          animate='animateState'
-          className='base-page-size'
-          variants={{
-            intialState: {
-              opacity: 0,
-            },
-            animateState: {
-              opacity: 1
-            },
-            exitState: {
-
-            }
-          }}
-        > */}

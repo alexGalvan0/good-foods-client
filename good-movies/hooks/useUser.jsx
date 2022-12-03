@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import useLocalStorage from "./useLocalStorage";
+
 
 const useUser = () => {
     const [userData, setUserData] = useState({})
-    const [firstName, setfirstName] = useLocalStorage('name', '')
-    const [lastName, setLastName] = useLocalStorage('last_name', '')
-    const [userName, setUserName] = useLocalStorage('username', '')
+
     useEffect(() => {
         const token = localStorage.getItem('token')
 
@@ -16,9 +14,7 @@ const useUser = () => {
             const data = axios.get(url, config)
             const response = await data
             setUserData(response.data[0])
-            setfirstName(userData.firstName)
-            setLastName(userData.lastName)
-            setUserName(userData.userName)
+
         }
         req()
      

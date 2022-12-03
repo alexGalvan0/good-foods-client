@@ -10,7 +10,7 @@ function Login() {
                     <div className="pb-5 text-center">
                         <LoginForm />
                         {/* <SignIn /> */}
-                        <GoogleLogin />
+                        {/* <GoogleLogin /> */}
 
                     </div>
                 </div>
