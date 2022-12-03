@@ -53,11 +53,6 @@ function MovieSearch({ typeOfSearch }) {
 
 
 
-    // friends
-    //http://127.0.0.1:8000/api/searchUser/james/
-
-
-
     return (
         <div className="container mt-5 pt-5">
             <div className="row pb-5">

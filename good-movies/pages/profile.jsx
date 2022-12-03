@@ -23,8 +23,8 @@ function Profile() {
   const deleteLikedMovie = async (imdbId) => {
     await axios.delete(`http://127.0.0.1:8000/api/addLikedList/${user.id}/${imdbId}/`);
     const request = await axios.get(url);
-      const response = request;
-      setData(response.data);
+    const response = request;
+    setData(response.data);
   }
 
   return (
@@ -65,7 +65,7 @@ function Profile() {
           {Array.isArray(data) &&
             data.map((m) => (
               <>
-                <div className="d-flex text-center">
+                <Link style={{ textDecoration: 'none' }} href={`/movie/${m.imdbId}`}><div className="d-flex text-center">
                   <Image key={m.imdbId} src={m.poster} alt="" height={200} width={150} />
                   <div
                     className="d-flex  row  align-items-center"
@@ -76,15 +76,17 @@ function Profile() {
                     <p className="text-light">Year: {m.year}</p>
                   </div>
                 </div>
+                </Link>
                 <div className="">
                   <button
-                    onClick={() => {deleteLikedMovie(m.imdbId)}}
+                    onClick={() => { deleteLikedMovie(m.imdbId) }}
                     className="btn btn-lg btn-alert text-light bold"
                   >
                     x
                   </button>
                 </div>
                 <hr className="text-light" />
+
               </>
             ))}
         </div>
