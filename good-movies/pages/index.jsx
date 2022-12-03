@@ -5,7 +5,7 @@ import Hero from '../components/about/Hero'
 
 export default function Index() {
   return (
-    <div className='pt-5 mt-5'>
+    <div>
       <Hero />
     </div>
   )
