@@ -5,58 +5,74 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Script from 'next/script'
 import Head from 'next/head'
 import AppBar from '../components/nav/MenuAppBar';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { green, purple, blue, white } from '@mui/material/colors';
 import SimpleBottomNavigation from '../components/nav/BottomNav';
 import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: blue[700],
+      },
+      secondary: {
+        main: '#fff'
+      },
+    }
+  })
+
   return (
-    <AnimatePresence mode='wait'>
-      <motion.div
-        key={router.route}
-        initial='initialState'
-        animate='animateState'
-        exit="exitState"
-        className='base-page-size'
-        variants={{
-          initialState: {
-            opacity: 0,
-          },
-          animateState: {
-            opacity: 1
-          },
-          exitState: {
+    <ThemeProvider theme={theme}>
+      <AnimatePresence mode='wait'>
+        <motion.div
+          key={router.route}
+          initial='initialState'
+          animate='animateState'
+          exit="exitState"
+          className='base-page-size'
+          variants={{
+            initialState: {
+              opacity: 0,
+            },
+            animateState: {
+              opacity: 1
+            },
+            exitState: {
 
-          }
-        }}
-      >
-        <div style={{ maxWidth: '100vw' }}>
-          <Head className="h-11 standalone:h-22">
+            }
+          }}
+        >
+          <div style={{ maxWidth: '100vw' }}>
+            <Head className="h-11 standalone:h-22">
 
-            <link rel="manifest" href="/site.webmanifest" />
-            <Script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js" defer></Script>
+              <link rel="manifest" href="/site.webmanifest" />
+              <Script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js" defer></Script>
 
-            <Script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous" defer></Script>
-            <Script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossOrigin="anonymous" defer></Script>
-          </Head>
-          <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-          <script src="https://accounts.google.com/gsi/client" async defer></script>
-          <div className='bg-dark'>
+              <Script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous" defer></Script>
+              <Script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossOrigin="anonymous" defer></Script>
+            </Head>
+            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+            <script src="https://accounts.google.com/gsi/client" async defer></script>
+            <div className='bg-dark'>
+            </div>
+
+
+
+            <AppBar />
+            <Component {...pageProps} />
+            {/* <Nav /> */}
+
+
+            <SimpleBottomNavigation />
+
+
           </div>
-
-
-
-          <AppBar />
-          <Component {...pageProps} />
-          {/* <Nav /> */}
-
-
-          <SimpleBottomNavigation />
-
-
-        </div>
-      </motion.div>
-    </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+    </ThemeProvider>
   )
 }
 

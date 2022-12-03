@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react"
 import Toggle from "../../components/search/Toggle";
 import Link from 'next/link'
-
+import Button from '@mui/material/Button';
 
 function MovieSearch() {
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY
@@ -36,9 +36,8 @@ function MovieSearch() {
             <div className="row pb-5">
                 <div className="col col-lg-4">
                     <Toggle />
-                    <h2 className="text-light">Search Movie</h2>
                     <input type="search" onChange={getSerach} value={movie} className="form-control form-control-dark text-bg-light mb-2" placeholder="Search..." aria-label="Search" />
-                    <button onClick={displayResupts} className="btn btn-primary text-light">Search</button>
+                    <Button sx={{bgcolor:'primary.main'}} color='secondary' onClick={displayResupts}>Search</Button>
                 </div>
             </div>
 
