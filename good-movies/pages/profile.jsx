@@ -16,9 +16,16 @@ function Profile() {
       const response = request;
       setData(response.data);
     };
-    user.id != undefined ? getData(): null
+    user.id != undefined ? getData() : null
 
   }, [user]);
+
+  const deleteLikedMovie = async (imdbId) => {
+    await axios.delete(`http://127.0.0.1:8000/api/addLikedList/${user.id}/${imdbId}/`);
+    const request = await axios.get(url);
+      const response = request;
+      setData(response.data);
+  }
 
   return (
     <div className="container mt-5 mb-5 pb-5">
@@ -27,7 +34,7 @@ function Profile() {
           <div className="p-5 mb-4 bg-primary rounded-3">
             <div className="container-fluid py-5">
               <h1 className="display-5 fw-bold text-light">
-                @ {user.username}
+                @{user.username ? user.username : null}
               </h1>
               <h6 className="text-light"> Movies Liked: {data.length}</h6>
 
@@ -55,35 +62,31 @@ function Profile() {
             width: "30rem",
           }}
         >
-          {data.length > 0?
-          data.map((m) => (
-            <>
-              <div className="d-flex text-center">
-                <Image src={m.poster} alt="" height={200} width={150} />
-                <div
-                  className="d-flex  row  align-items-center"
-                  style={{ width: "20rem" }}
-                >
-                  <h5 className="text-light">Title: {m.title}</h5>
-                  <p className="text-light">Director: {m.director}</p>
-                  <p className="text-light">Year: {m.year}</p>
+          {Array.isArray(data) &&
+            data.map((m) => (
+              <>
+                <div className="d-flex text-center">
+                  <Image key={m.imdbId} src={m.poster} alt="" height={200} width={150} />
+                  <div
+                    className="d-flex  row  align-items-center"
+                    style={{ width: "20rem" }}
+                  >
+                    <h5 className="text-light">Title: {m.title}</h5>
+                    <p className="text-light">Director: {m.director}</p>
+                    <p className="text-light">Year: {m.year}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="">
-                <button
-                  onClick={async () => {
-                    let request =  axios.delete(`http://127.0.0.1:8000/api/addLikedList/${user.id}/${m.imdbId}/`);
-                    let response = await request
-                    setData(response.data);
-                  }}
-                  className="btn btn-lg btn-alert text-light bold"
-                >
-                  x
-                </button>
-              </div>
-              <hr className="text-light" />
-            </>
-          )):null}
+                <div className="">
+                  <button
+                    onClick={() => {deleteLikedMovie(m.imdbId)}}
+                    className="btn btn-lg btn-alert text-light bold"
+                  >
+                    x
+                  </button>
+                </div>
+                <hr className="text-light" />
+              </>
+            ))}
         </div>
       </div>
     </div>

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import useUser from '../../hooks/useUser'
 
 function Hero() {
+
   return (
     <div className="jumbotron p-4 p-md-5 text-white rounded d-flex justify-content-center">
       <div className="col-md-6 px-0 text-center">

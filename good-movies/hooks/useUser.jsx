@@ -1,25 +1,28 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const useUser = () => {
     const [userData, setUserData] = useState({})
+
     useEffect(() => {
         const token = localStorage.getItem('token')
-        
+
         const config = { headers: { Authorization: `Bearer ${token}` } }
         const url = "http://127.0.0.1:8000/api/user"
         const req = async () => {
-            const data = axios.get(url,config)
+            const data = axios.get(url, config)
             const response = await data
             setUserData(response.data[0])
-        }
 
+        }
         req()
+     
+
 
     }, [])
+    return userData
 
-    return  userData 
-    
 }
 export default useUser
 

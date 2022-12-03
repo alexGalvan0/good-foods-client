@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 
 function MovieSearch() {
-    const API_KEY = "b29c9a1a"
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
     const [data, setData] = useState([]);
     const [movie, setMovie] = useState('')
