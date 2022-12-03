@@ -1,15 +1,16 @@
-import * as React from 'react';
+import { useState } from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Box from '@mui/material/Box';
+
 
 import { Container } from '@mui/material';
 
-export default function Toggle() {
-  const [alignment, setAlignment] = React.useState('user');
+export default function Toggle({setSearchType}) {
+  const [alignment, setAlignment] = useState('movie');
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment)
+    setSearchType(newAlignment)
   };
 
   return (

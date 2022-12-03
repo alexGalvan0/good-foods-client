@@ -4,11 +4,12 @@ import Toggle from "../../components/search/Toggle";
 import Link from 'next/link'
 import Button from '@mui/material/Button';
 
-function MovieSearch() {
+function MovieSearch({ typeOfSearch }) {
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
     const [data, setData] = useState([]);
     const [movie, setMovie] = useState('')
+    const [searchType, setSearchType] = useState('user')
     const [movieResults, setMovieResults] = useState(false)
     let title = movie.replaceAll(' ', '+')
     let url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${title}&type=movie`
@@ -21,7 +22,6 @@ function MovieSearch() {
     const getSerach = (e) => {
         setMovie(e.target.value)
     }
-
     const results = () => {
         setMovieResults(true)
     }
@@ -30,14 +30,15 @@ function MovieSearch() {
         getMovies()
         results()
     }
+    console.log(searchType)
 
     return (
         <div className="container mt-5 pt-5">
             <div className="row pb-5">
                 <div className="col col-lg-4">
-                    <Toggle />
+                    <Toggle setSearchType={setSearchType} />
                     <input type="search" onChange={getSerach} value={movie} className="form-control form-control-dark text-bg-light mb-2" placeholder="Search..." aria-label="Search" />
-                    <Button sx={{bgcolor:'primary.main'}} color='secondary' onClick={displayResupts}>Search</Button>
+                    <Button sx={{ bgcolor: 'primary.main' }} color='secondary' onClick={displayResupts}>Search</Button>
                 </div>
             </div>
 
