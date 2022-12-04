@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import FollowCard from '../components/follows/FollowCard' 
 
 function Profile() {
   let user = useUser();
@@ -89,6 +90,11 @@ function Profile() {
 
               </>
             ))}
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+<FollowCard />
         </div>
       </div>
     </div>
