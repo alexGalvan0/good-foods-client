@@ -24,7 +24,8 @@ export default function FollowCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Visit</Button>
+        <Button color='secondary' sx={{bgcolor:'primary.main'}} size="small">Visit</Button>
+        <Button color='secondary' sx={{bgcolor:'primary.alert'}} size="small">Unfollow</Button>
       </CardActions>
     </Card>
   );

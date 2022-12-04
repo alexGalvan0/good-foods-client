@@ -68,7 +68,7 @@ function Profile() {
             maxHeight: "40rem",
             overflow: "hidden",
             overflow: "auto",
-            width: "30rem",
+        
           }}
         >
           {Array.isArray(data) &&
@@ -87,6 +87,7 @@ function Profile() {
                   <Button
                     sx={{ bgcolor: 'primary.alert' }}
                     varient="contained"
+                    size="small"
                     onClick={() => { deleteLikedMovie(m.imdbId) }}
                     className="btn btn-lg btn-alert text-light bold"
                   >
@@ -104,7 +105,7 @@ function Profile() {
             <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
           </Container>
 
-          <div className="col mt-2">
+          <div className="col mt-2 px-xl-5">
             <FollowCard />
           </div>
         </div>
