@@ -3,13 +3,13 @@ import { useState } from "react"
 import Toggle from "../../components/search/Toggle";
 import Link from 'next/link'
 import Button from '@mui/material/Button';
-import { Container } from "@mui/system";
 
 
 
 
 
-function MovieSearch({ typeOfSearch }) {
+
+function MovieSearch() {
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY
     const OMDB_URL = "https://www.omdbapi.com/"
     const BASE_URL = "http://127.0.0.1:8000/api/"
@@ -42,7 +42,7 @@ function MovieSearch({ typeOfSearch }) {
     }
 
     const displayResult = () => {
-        if (searchType === 'movie') {
+        if (searchType === 'movie'){
             getMovies()
             results()
         }
@@ -81,8 +81,8 @@ function MovieSearch({ typeOfSearch }) {
                 </div>
                 : null}
 
-            {searchType == 'user' ?
-
+            {searchType == 'user'  && 
+            data ?
                 <div className="col-lg-3">
                     <div className="row">
                         <div className="col">
@@ -103,7 +103,6 @@ function MovieSearch({ typeOfSearch }) {
                     </div>
                 </div>
                 : null}
-
         </div>
     )
 }
