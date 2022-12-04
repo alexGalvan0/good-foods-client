@@ -3,7 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import FollowCard from '../components/follows/FollowCard' 
+import Button from '@mui/material/Button';
+import FollowCard from '../components/follows/FollowCard'
+import { Container } from "@mui/material";
 
 function Profile() {
   let user = useUser();
@@ -54,8 +56,9 @@ function Profile() {
 
       <div className="row">
         <h3 className="text-light bg-dark rounded">Liked Movies: </h3>
-        <div
-          className=" border d-flex gap-3 rounded mb-5 bg-dark py-2 "
+        <Container
+          className=" d-flex gap-3  mb-5 py-2 "
+          sx={{bgcolor:'secondary.grey'}}
           style={{
             maxHeight: "40rem",
             overflow: "hidden",
@@ -71,28 +74,29 @@ function Profile() {
                   <div
                     className="d-flex  flex-column align-items-center"
                   >
- 
+
                   </div>
                 </div>
                 </Link>
                 <div>
-                  <button
+                  <Button
+                  sx={{bgcolor:'primary.alert'}}
+                    varient="contained"
                     onClick={() => { deleteLikedMovie(m.imdbId) }}
                     className="btn btn-lg btn-alert text-light bold"
                   >
                     x
-                  </button>
+                  </Button>
                 </div>
-                <hr className="text-light" />
 
               </div>
             ))}
-        </div>
+        </Container>
       </div>
       <div className="row">
         <div className="col">
-        <h3 className="text-light bg-dark rounded">Following: </h3>
-<FollowCard />
+          <h3 className="text-light bg-dark rounded">Following: </h3>
+          <FollowCard />
         </div>
       </div>
     </div>

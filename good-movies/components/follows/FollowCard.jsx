@@ -17,9 +17,9 @@ const bull = (
 
 export default function FollowCard() {
   return (
-    <Card sx={{ maxWidth: 175 }}>
+    <Card sx={{ maxWidth: 175,bgcolor:'secondary.grey' }}>
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div"color='secondary.main'>
           celine
         </Typography>
       </CardContent>
