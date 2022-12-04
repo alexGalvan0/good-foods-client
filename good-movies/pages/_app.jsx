@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
       },
       secondary: {
         main: '#fff',
+        dark:grey[700],
         grey:grey[900]
       },
     }

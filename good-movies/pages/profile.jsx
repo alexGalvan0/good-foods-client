@@ -56,7 +56,11 @@ function Profile() {
       </div>
 
       <div className="row">
-        <h3 className="text-light bg-dark rounded">Liked Movies: </h3>
+        <Container sx={{ bgcolor: 'secondary.grey' }}>
+
+          <Typography color='secondary.main' variant={'h5'}>Liked Movies: </Typography>
+
+        </Container>
         <Container
           className=" d-flex gap-3  mb-5 py-2 "
           sx={{ bgcolor: 'secondary.grey' }}
@@ -69,7 +73,7 @@ function Profile() {
         >
           {Array.isArray(data) &&
             data.map((m) => (
-              <div className="d-flex flex-column gap-2">
+              <div className="col d-flex flex-column gap-2">
                 <Link style={{ textDecoration: 'none' }} href={`/movie/${m.imdbId}`}><div className="d-flex text-center">
                   <Image key={m.imdbId} src={m.poster} alt="" height={200} width={150} />
                   <div
@@ -95,15 +99,14 @@ function Profile() {
         </Container>
       </div>
       <div className="row">
+        <div className="col d-flex flex-column">
+          <Container sx={{ bgcolor: 'secondary.grey' }} >
+            <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
+          </Container>
 
-        <Container className="mb-2" sx={{ bgcolor: 'secondary.grey' }}>
-
-          <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
-
-        </Container>
-
-        <div className="col">
-          <FollowCard />
+          <div className="col mt-2">
+            <FollowCard />
+          </div>
         </div>
       </div>
     </div>
