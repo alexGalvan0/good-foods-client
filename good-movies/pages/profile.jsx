@@ -55,7 +55,7 @@ function Profile() {
       <div className="row">
         <h3 className="text-light bg-dark rounded">Liked Movies: </h3>
         <div
-          className=" border rounded mb-5 bg-dark py-2 "
+          className=" border d-flex gap-3 rounded mb-5 bg-dark py-2 "
           style={{
             maxHeight: "40rem",
             overflow: "hidden",
@@ -65,20 +65,17 @@ function Profile() {
         >
           {Array.isArray(data) &&
             data.map((m) => (
-              <>
+              <div className="d-flex flex-column gap-2">
                 <Link style={{ textDecoration: 'none' }} href={`/movie/${m.imdbId}`}><div className="d-flex text-center">
                   <Image key={m.imdbId} src={m.poster} alt="" height={200} width={150} />
                   <div
-                    className="d-flex  row  align-items-center"
-                    style={{ width: "20rem" }}
+                    className="d-flex  flex-column align-items-center"
                   >
-                    <h5 className="text-light">Title: {m.title}</h5>
-                    <p className="text-light">Director: {m.director}</p>
-                    <p className="text-light">Year: {m.year}</p>
+ 
                   </div>
                 </div>
                 </Link>
-                <div className="">
+                <div>
                   <button
                     onClick={() => { deleteLikedMovie(m.imdbId) }}
                     className="btn btn-lg btn-alert text-light bold"
@@ -88,12 +85,13 @@ function Profile() {
                 </div>
                 <hr className="text-light" />
 
-              </>
+              </div>
             ))}
         </div>
       </div>
       <div className="row">
         <div className="col">
+        <h3 className="text-light bg-dark rounded">Following: </h3>
 <FollowCard />
         </div>
       </div>
