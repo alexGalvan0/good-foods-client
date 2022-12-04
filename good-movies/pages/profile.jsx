@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
+import Box from "@mui/material";
 import FollowCard from '../components/follows/FollowCard'
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 function Profile() {
   let user = useUser();
@@ -58,7 +59,7 @@ function Profile() {
         <h3 className="text-light bg-dark rounded">Liked Movies: </h3>
         <Container
           className=" d-flex gap-3  mb-5 py-2 "
-          sx={{bgcolor:'secondary.grey'}}
+          sx={{ bgcolor: 'secondary.grey' }}
           style={{
             maxHeight: "40rem",
             overflow: "hidden",
@@ -80,7 +81,7 @@ function Profile() {
                 </Link>
                 <div>
                   <Button
-                  sx={{bgcolor:'primary.alert'}}
+                    sx={{ bgcolor: 'primary.alert' }}
                     varient="contained"
                     onClick={() => { deleteLikedMovie(m.imdbId) }}
                     className="btn btn-lg btn-alert text-light bold"
@@ -94,8 +95,14 @@ function Profile() {
         </Container>
       </div>
       <div className="row">
+
+        <Container className="mb-2" sx={{ bgcolor: 'secondary.grey' }}>
+
+          <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
+
+        </Container>
+
         <div className="col">
-          <h3 className="text-light bg-dark rounded">Following: </h3>
           <FollowCard />
         </div>
       </div>

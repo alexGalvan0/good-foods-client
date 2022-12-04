@@ -100,7 +100,7 @@ function MovieSearch() {
                     </div>
                     <div className="row mb-5 pb-5">
                         <div className=" mb-5  bg-dark rounded " style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
-                        <h2 className="text-light">{data.username}</h2>  
+                        <h2 className="text-light">@{data.username}</h2>  
                             <div className="col-4 d-flex flex-column pb-2">
                                 <d className="col-3 d-flex gap-1">
                                 <p className="text-light">{data.first_name}</p>
