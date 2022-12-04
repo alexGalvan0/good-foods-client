@@ -3,6 +3,7 @@ import { useState } from "react"
 import Toggle from "../../components/search/Toggle";
 import Link from 'next/link'
 import Button from '@mui/material/Button';
+import useUser from'../../hooks/useUser'
 
 
 
@@ -10,6 +11,7 @@ import Button from '@mui/material/Button';
 
 
 function MovieSearch() {
+    const user = useUser()
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY
     const OMDB_URL = "https://www.omdbapi.com/"
     const BASE_URL = "http://127.0.0.1:8000/api/"
@@ -50,6 +52,13 @@ function MovieSearch() {
             getFriends()
 
         }
+    }
+
+    const followFriend = async () => {
+        let username = data.username
+        let req = axios.post(`${BASE_URL}follow/${user.id}/${username}/`)
+        let resp = await req
+
     }
 
 
@@ -97,7 +106,7 @@ function MovieSearch() {
                                 <p className="text-light">{data.first_name}</p>
                                 <p className="text-light">{data.last_name}</p>
                                 </d>
-                                <Button sx={{ bgcolor: 'primary.main' }} color='secondary'>Follow</Button>
+                                <Button onClick={followFriend} sx={{ bgcolor: 'primary.main' }} color='secondary'>Follow</Button>
                             </div>
                         </div>
                     </div>
