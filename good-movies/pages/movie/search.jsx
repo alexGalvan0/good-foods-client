@@ -3,6 +3,7 @@ import { useState } from "react"
 import Toggle from "../../components/search/Toggle";
 import Link from 'next/link'
 import Button from '@mui/material/Button';
+import { Container } from "@mui/system";
 
 
 
@@ -27,7 +28,7 @@ function MovieSearch({ typeOfSearch }) {
         let resp = await req
         setData(resp.data.Search)
     }
-    const getSerach = (e) => {
+    const getSearch = (e) => {
         setSearch(e.target.value)
     }
     const results = () => {
@@ -38,17 +39,17 @@ function MovieSearch({ typeOfSearch }) {
         let req = axios.get(`${BASE_URL}getUserByUsername/${search}`)
         let resp = await req
         setData(resp.data)
-        console.log(resp.data)
     }
 
     const displayResult = () => {
-       if(searchType === 'movie'){
-        getMovies()
-        results()
-       } 
-       if(searchType === 'user'){
-        getFriends()
-       }
+        if (searchType === 'movie') {
+            getMovies()
+            results()
+        }
+        if (searchType === 'user') {
+            getFriends()
+
+        }
     }
 
 
@@ -58,7 +59,7 @@ function MovieSearch({ typeOfSearch }) {
             <div className="row pb-5">
                 <div className="col col-lg-4">
                     <Toggle setSearchType={setSearchType} />
-                    <input type="search" onChange={getSerach} value={search} className="form-control form-control-dark text-bg-light mb-2" placeholder="Search..." aria-label="Search" />
+                    <input type="search" onChange={getSearch} value={search} className="form-control form-control-dark text-bg-light mb-2" placeholder="Search..." aria-label="Search" />
                     <Button sx={{ bgcolor: 'primary.main' }} color='secondary' onClick={displayResult}>Search</Button>
                 </div>
             </div>
@@ -80,19 +81,24 @@ function MovieSearch({ typeOfSearch }) {
                 </div>
                 : null}
 
-            {searchType == 'user' &&
-                userResults ?
-                <div>
+            {searchType == 'user' ?
+
+                <div className="col-lg-3">
                     <div className="row">
                         <div className="col">
                             <h2 className="text-light">Users: </h2>
                         </div>
                     </div>
                     <div className="row mb-5 pb-5">
-                        <div className=" mb-5 d-flex gap-5 p-3 rounded bg-black" style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
-                            {/* {data.splice(0, 5).length > 0 ? data.map((d) => (
-                                // <Link className="rounded" href={`/movie/${d.imdbID}`}><img key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
-                            )) : <></>} */}
+                        <div className=" mb-5  bg-dark rounded " style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
+                        <h2 className="text-light">{data.username}</h2>  
+                            <div className="col-4 d-flex flex-column pb-2">
+                                <d className="col-3 d-flex gap-1">
+                                <p className="text-light">{data.first_name}</p>
+                                <p className="text-light">{data.last_name}</p>
+                                </d>
+                                <Button sx={{ bgcolor: 'primary.main' }} color='secondary'>Follow</Button>
+                            </div>
                         </div>
                     </div>
                 </div>
