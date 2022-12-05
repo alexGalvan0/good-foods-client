@@ -19,7 +19,7 @@ function MovieProfile({mData, uData}) {
  
     useEffect(() => {
         const req = async () => {
-            let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}&plot=full`
+            let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
             const data = axios.get(url)
             const response = await data
             setMovieData(response.data)

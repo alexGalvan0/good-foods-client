@@ -36,15 +36,10 @@ const goHome = (e) => {
     <Box sx={{ flexGrow: 1}}>
       <AppBar position="static" sx={{bgcolor:'secondary.grey'}}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+        <img src='https://freesvg.org/img/Movie-Clapperboard.png' width={25} height={25} alt='movie'></img>
+
+
+      
           <Typography onClick={goHome} variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Good Movies
           </Typography>
