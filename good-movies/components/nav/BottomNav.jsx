@@ -59,11 +59,11 @@ export default function SimpleBottomNavigation() {
                     setValue(newValue);
                 }}
             >
-                <BottomNavigationAction onClick={goHome} label="Home" icon={<HomeIcon />} />
-                <BottomNavigationAction onClick={goToSearchMovie} label="search" icon={<SearchIcon />} />
-                {user ? <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon />} /> : null}
-                {user ? <BottomNavigationAction onClick={logout} label="Logout" icon={<LogoutIcon />} /> :
-                    <BottomNavigationAction onClick={login} label="Login" icon={<LoginIcon />} />}
+                <BottomNavigationAction sx={{bgcolor:'primary'}} onClick={goHome} label="Home" icon={<HomeIcon color='secondary' />} />
+                <BottomNavigationAction onClick={goToSearchMovie} label="search" icon={<SearchIcon color='secondary' />} />
+                {user ? <BottomNavigationAction onClick={goToProfile} label="Profile" icon={<AccountBoxIcon color='secondary' />} /> : null}
+                {user ? <BottomNavigationAction onClick={logout} label="Logout" icon={<LogoutIcon color='secondary' />} /> :
+                    <BottomNavigationAction onClick={login} label="Login" icon={<LoginIcon color='secondary' />} />}
             </BottomNavigation>
         </Box>
 
