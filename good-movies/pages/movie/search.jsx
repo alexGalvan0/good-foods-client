@@ -27,7 +27,7 @@ function MovieSearch() {
 
 
     const getMovies = async () => {
-        let req = axios.get(`${OMDB_URL}?apikey=${API_KEY}&s=${title}&type=movie`)
+        let req = axios.get(`${OMDB_URL}?apikey=${API_KEY}&s=${title}&type=movie&page=1`)
         let resp = await req
         setData(resp.data.Search)
     }
