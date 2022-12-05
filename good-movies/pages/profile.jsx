@@ -43,12 +43,12 @@ function Profile() {
               <h6 className="text-light"> Movies Liked: {data.length}</h6>
 
               <Link href="movie/search">
-                <button
-                  className="btn btn-alert btn-lg text-light"
-                  type="button"
+                <Button
+                sx={{bgcolor:'primary.main'}}
+                color='secondary'
                 >
                   Search Movies
-                </button>
+                </Button>
               </Link>
             </div>
           </div>
@@ -62,7 +62,7 @@ function Profile() {
 
         </Container>
         <Container
-          className=" d-flex gap-3  mb-5 py-2 "
+          className=" d-flex gap-3  mb-3 py-2 "
           sx={{ bgcolor: 'secondary.grey' }}
           style={{
             maxHeight: "40rem",

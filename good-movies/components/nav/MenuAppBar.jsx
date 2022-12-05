@@ -33,8 +33,8 @@ const goHome = (e) => {
 }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1}}>
+      <AppBar position="static" sx={{bgcolor:'secondary.grey'}}>
         <Toolbar>
           <IconButton
             size="large"

@@ -47,11 +47,12 @@ export default function SimpleBottomNavigation() {
 
 
 
-        <Box style={{ position: 'fixed', bottom: '0', width: '100vw', }}>
+        <Box style={{ position: 'fixed', bottom: '0', width: '100vw' }}>
             <div className='mb-4'>
                 <FloatingActionButtons />
             </div>
             <BottomNavigation
+                sx={{bgcolor:'secondary.grey'}}
                 showLabels
                 value={value}
                 onChange={(event, newValue) => {

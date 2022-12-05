@@ -3,7 +3,8 @@ import { useState } from "react"
 import Toggle from "../../components/search/Toggle";
 import Link from 'next/link'
 import Button from '@mui/material/Button';
-import useUser from'../../hooks/useUser'
+import useUser from '../../hooks/useUser'
+import { Container } from "@mui/system";
 
 
 
@@ -44,7 +45,7 @@ function MovieSearch() {
     }
 
     const displayResult = () => {
-        if (searchType === 'movie'){
+        if (searchType === 'movie') {
             getMovies()
             results()
         }
@@ -81,17 +82,17 @@ function MovieSearch() {
                         </div>
                     </div>
                     <div className="row mb-5 pb-5">
-                        <div className=" mb-5 d-flex gap-5 p-3 rounded bg-black" style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
+                        <Container sx={{ bgcolor: 'secondary.grey' }} className=" mb-5 d-flex gap-5 p-3 rounded" style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
                             {data.splice(0, 5).length > 0 ? data.map((d) => (
                                 <Link className="rounded" href={`/movie/${d.imdbID}`}><img key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
                             )) : <></>}
-                        </div>
+                        </Container>
                     </div>
                 </div>
                 : null}
 
-            {searchType == 'user'  && 
-            data ?
+            {searchType == 'user' &&
+                data ?
                 <div className="col-lg-3">
                     <div className="row">
                         <div className="col">
@@ -100,11 +101,11 @@ function MovieSearch() {
                     </div>
                     <div className="row mb-5 pb-5">
                         <div className=" mb-5  bg-dark rounded " style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
-                        <h2 className="text-light">@{data.username}</h2>  
+                            <h2 className="text-light">@{data.username}</h2>
                             <div className="col-4 d-flex flex-column pb-2">
                                 <d className="col-3 d-flex gap-1">
-                                <p className="text-light">{data.first_name}</p>
-                                <p className="text-light">{data.last_name}</p>
+                                    <p className="text-light">{data.first_name}</p>
+                                    <p className="text-light">{data.last_name}</p>
                                 </d>
                                 <Button onClick={followFriend} sx={{ bgcolor: 'primary.main' }} color='secondary'>Follow</Button>
                             </div>
