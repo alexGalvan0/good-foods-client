@@ -26,14 +26,18 @@ function LoginForm() {
         }
         
         else {
-            const user = axios.post('http://127.0.0.1:8000/api/token', {
-                "username": username,
-                "password": password
-            })
-            const res = await user
-            localStorage.setItem('token', res.data.access)
-            e.preventDefault();
-            router.push('/profile');
+            try{
+                const user = axios.post('http://127.0.0.1:8000/api/token', {
+                    "username": username,
+                    "password": password
+                })
+                const res = await user
+                localStorage.setItem('token', res.data.access)
+                e.preventDefault();
+                router.push('/profile');
+            } catch {
+                alert('wrong username or password')
+            }
         }
     }
     return (
