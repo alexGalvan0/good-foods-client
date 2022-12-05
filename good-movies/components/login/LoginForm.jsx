@@ -19,7 +19,7 @@ function LoginForm() {
         setPassword(e.target.value)
     }
     const submit = async (e) => {
-
+        e.preventDefault()
         try {
             const user = axios.post('http://127.0.0.1:8000/api/token', {
                 "username": username,
@@ -39,7 +39,7 @@ function LoginForm() {
             <div className=' container d-flex flex-column justify-content-center gap-3  p-3 rounded bg-primary' >
                 <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="User name" value={username} />
                 <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
-                <Button onClick={submit}><SnackbarAlert inputText2={username} inputText={password} message='Wrong input values' buttonText='Login' /></Button>
+                <Button type='submit' onClick={submit}><SnackbarAlert inputText2={username} inputText={password} message='Wrong input values' buttonText='Login' /></Button>
                 <Typography color='secondary'>No account?</Typography>
                 <Button type='submit' color="success" variant="contained"><Link style={{ textDecoration: 'none' }} href='/register'><Typography color='secondary'>GET STARTED — ITS FREE!</Typography></Link></Button>
 
