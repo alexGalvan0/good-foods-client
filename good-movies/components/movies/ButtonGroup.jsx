@@ -1,6 +1,7 @@
 import axios from "axios";
 import Link from "next/link";
 import useUser from "../../hooks/useUser";
+import { Button } from "@mui/material";
 
 function ButtonGroup({ mData }) {
   const user = useUser();
@@ -42,20 +43,10 @@ function ButtonGroup({ mData }) {
       aria-label="Basic example"
     >
       <Link href="/profile">
-        <button
-          onClick={likeMovie}
-          type="button"
-          className="btn btn-alert text-light"
-        >
+        <Button size='small' variant='contained' onClick={likeMovie} sx={{bgcolor:'secondary'}} >
           Like
-        </button>
+        </Button>
       </Link>
-      <button type="button" className="btn btn-alert text-light">
-        Add Watch List
-      </button>
-      <button type="button" className="btn btn-alert text-light">
-        Review
-      </button>
     </div>
   );
 }

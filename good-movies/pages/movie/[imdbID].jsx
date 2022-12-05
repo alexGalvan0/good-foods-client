@@ -32,13 +32,13 @@ function MovieProfile({mData, uData}) {
     mData = movieData
     uData = useUser()
     return (
-        <div className="container rounded border bg-primary p-2 my-5 text-center text-lg-start mb-5 pb-5">
+        <div className="container rounded bg-primary p-2 my-5 text-center text-lg-start mb-5 pb-5">
             <div className="row">
                 <div className="col">
                     <div className="media">
                         <img src={movieData.Poster} className="mr-3" alt="movie" />
                         <div className="media-body">
-                            <h3 className="mt-2 text-light">{movieData.Title}</h3>
+                            <h3 className="bold mt-2 text-light">{movieData.Title}</h3>
                             <p className='text-light'>Plot: {movieData.Plot}</p>
                             <p className='text-light'>Director: {movieData.Director}</p>
                             <p className='text-light'>Rated: {movieData.Rated}</p>
