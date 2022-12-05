@@ -33,28 +33,26 @@ function LoginForm() {
                 })
                 const res = await user
                 localStorage.setItem('token', res.data.access)
-                e.preventDefault();
-                router.push('/profile');
             } catch {
                 alert('wrong username or password')
             }
         }
     }
     return (
-        <>
+        <form>
 
-            <div className=' container d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
+            <div className=' container d-flex flex-column justify-content-center gap-3  p-3 rounded bg-primary' >
                 <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="User name" value={username} />
                 <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
-                <Button onClick={submit} color="primary" variant="contained">Login</Button>
+                <Link href='/profile'><Button type='submit'onClick={submit} color="primary" variant="contained">Login</Button></Link>
 
                 <Typography color='secondary'>No account?</Typography>
-                <Button color="success" variant="contained"><Link style={{ textDecoration: 'none' }} href='/register'><Typography color='secondary'>GET STARTED — ITS FREE!</Typography></Link></Button>
+                <Button type='submit' color="success" variant="contained"><Link style={{ textDecoration: 'none' }} href='/register'><Typography color='secondary'>GET STARTED — ITS FREE!</Typography></Link></Button>
 
             </div>
 
 
-        </>
+        </form>
     )
 }
 
