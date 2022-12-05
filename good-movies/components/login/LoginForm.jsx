@@ -1,7 +1,9 @@
 import axios from "axios"
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-
+import Link from 'next/link'
+import Button from '@mui/material/Button';
+import {  Typography } from "@mui/material";
 
 function LoginForm() {
     const router = useRouter();
@@ -31,7 +33,11 @@ function LoginForm() {
             <div  className=' container d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
                 <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="User name" value={username} />
                 <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
-                <button onClick={submit}className="btn btn-primary">Login</button>
+                <Button onClick={submit} color="primary" variant="contained">Login</Button>
+
+                <Typography color='secondary'>OR</Typography>
+                <Link style={{ textDecoration: 'none' }} href='/register'><Button color="success" variant="contained">GET STARTED — ITS FREE!</Button></Link>
+
             </div>
 
             
