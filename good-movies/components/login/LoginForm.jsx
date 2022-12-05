@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Button from '@mui/material/Button';
-import {  Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 function LoginForm() {
     const router = useRouter();
@@ -18,19 +18,28 @@ function LoginForm() {
         setPassword(e.target.value)
     }
     const submit = async (e) => {
-        const user = axios.post('http://127.0.0.1:8000/api/token', {
-            "username": username,
-            "password": password
-        })
-        const res = await user
-        localStorage.setItem('token', res.data.access)
-        e.preventDefault();
-        router.push('/profile');
+
+        if (username == "") {
+            alert('please enter username')
+        }else if(password == ""){
+            alert('please enter password')
+        }
+        
+        else {
+            const user = axios.post('http://127.0.0.1:8000/api/token', {
+                "username": username,
+                "password": password
+            })
+            const res = await user
+            localStorage.setItem('token', res.data.access)
+            e.preventDefault();
+            router.push('/profile');
+        }
     }
     return (
         <>
-            
-            <div  className=' container d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
+
+            <div className=' container d-flex flex-column justify-content-center gap-1 border p-2 rounded' >
                 <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="User name" value={username} />
                 <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
                 <Button onClick={submit} color="primary" variant="contained">Login</Button>
@@ -40,7 +49,7 @@ function LoginForm() {
 
             </div>
 
-            
+
         </>
     )
 }
