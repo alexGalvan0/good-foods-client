@@ -4,12 +4,12 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Container } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { useRouter } from 'next/router'
-import FloatingActionButtons from './FloatingActionButton';
+
 
 export default function MenuAppBar() {
   const router = useRouter();
@@ -34,14 +34,13 @@ const goHome = (e) => {
 
   return (
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" sx={{bgcolor:'secondary.grey'}}>
+      <AppBar position="static" sx={{bgcolor:'primary'}}>
         <Toolbar>
+        <Box sx={{paddingRight:1}}>
         <img src='https://freesvg.org/img/Movie-Clapperboard.png' width={25} height={25} alt='movie'></img>
-
-
-      
+        </Box>
           <Typography onClick={goHome} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Good Movies
+            GOOD MOVIES
           </Typography>
           {auth && (
             <div>

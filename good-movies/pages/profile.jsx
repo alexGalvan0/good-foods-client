@@ -44,8 +44,8 @@ function Profile() {
 
               <Link href="movie/search">
                 <Button
-                sx={{bgcolor:'primary.main'}}
-                color='secondary'
+                  sx={{ bgcolor: 'primary.main' }}
+                  color='secondary'
                 >
                   Search Movies
                 </Button>
@@ -68,23 +68,15 @@ function Profile() {
             maxHeight: "40rem",
             overflow: "hidden",
             overflow: "auto",
-        
+
           }}
         >
           {Array.isArray(data) &&
             data.map((m) => (
-              <div className="col d-flex flex-column gap-2">
-                <Link style={{ textDecoration: 'none' }} href={`/movie/${m.imdbId}`}><div className="d-flex text-center">
-                  <Image key={m.imdbId} src={m.poster} alt="" height={200} width={150} />
-                  <div
-                    className="d-flex  flex-column align-items-center"
-                  >
-
-                  </div>
-                </div>
-                </Link>
+              <div className="col d-flex flex-column">
                 <div>
                   <Button
+                    sx={{ marginBottom: -4.5, paddingLeft: 17.5, paddingRight: 0 }}
                     varient="text"
                     color='alert'
                     size="large"
@@ -93,8 +85,18 @@ function Profile() {
                   >
                     x
                   </Button>
-                </div>
+                  <Link style={{ textDecoration: 'none' }} href={`/movie/${m.imdbId}`}><div className="d-flex text-center">
+                    <Image key={m.imdbId} src={m.poster} alt="" height={200} width={150} />
+                    <div
+                      className="d-flex  flex-column align-items-center"
+                    >
 
+                    </div>
+                  </div>
+                  </Link>
+                  <div>
+                  </div>
+                </div>
               </div>
             ))}
         </Container>

@@ -20,7 +20,7 @@ export default function FollowCard() {
     <Card sx={{ maxWidth: 175,bgcolor:'secondary.grey' }}>
       <CardContent>
         <Typography variant="h5" component="div"color='secondary.main'>
-          celine
+          @celine
         </Typography>
       </CardContent>
       <CardActions>
