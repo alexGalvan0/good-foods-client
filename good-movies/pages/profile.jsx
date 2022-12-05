@@ -32,11 +32,11 @@ function Profile() {
   }
 
   return (
-    <div className="container mt-5 mb-5 pb-5">
+    <div className="container mt-3">
       <div className="row">
         <div className="col">
-          <div className="p-5 mb-4 bg-primary rounded-3">
-            <div className="container-fluid py-5">
+          <div className=" mb-3 bg-primary rounded-3">
+            <div className="container-fluid py-3">
               <h1 className="display-5 fw-bold text-light">
                 @{user.username ? user.username : null}
               </h1>
@@ -85,11 +85,11 @@ function Profile() {
                 </Link>
                 <div>
                   <Button
-                    sx={{ bgcolor: 'primary.alert' }}
-                    varient="contained"
-                    size="small"
+                    varient="text"
+                    color='alert'
+                    size="large"
                     onClick={() => { deleteLikedMovie(m.imdbId) }}
-                    className="btn btn-lg btn-alert text-light bold"
+                    className="btn-alert"
                   >
                     x
                   </Button>
@@ -101,7 +101,7 @@ function Profile() {
       </div>
       <div className="row">
         <div className="col d-flex flex-column">
-          <Container sx={{ bgcolor: 'secondary.grey' }} >
+          <Container sx={{ bgcolor: 'secondary.grey' }} className='rounded'>
             <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
           </Container>
 

@@ -26,6 +26,9 @@ function MyApp({ Component, pageProps }) {
         grey:'#282c2c',
         nav:'#717e87'
       },
+      alert:{
+        main:red[500],
+      }
     }
   })
 

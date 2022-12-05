@@ -65,11 +65,11 @@ function MovieSearch() {
 
 
     return (
-        <div className="container mt-5 pt-5">
-            <div className="row pb-5">
+        <div className="container bg-dark mt-3 pt-3">
+            <div className="row pb-3">
                 <div className="col col-lg-4">
                     <Toggle setSearchType={setSearchType} />
-                    <input type="search" onChange={getSearch} value={search} className="form-control form-control-dark text-bg-light mb-2" placeholder="Search..." aria-label="Search" />
+                    <input type="search" onChange={getSearch} value={search} className="form-control form-control-dark text-bg-light mb-3" placeholder="Search..." aria-label="Search" />
                     <Button sx={{ bgcolor: 'primary.main' }} color='secondary' onClick={displayResult}>Search</Button>
                 </div>
             </div>
