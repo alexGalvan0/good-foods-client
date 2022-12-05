@@ -35,8 +35,8 @@ function LoginForm() {
                 <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
                 <Button onClick={submit} color="primary" variant="contained">Login</Button>
 
-                <Typography color='secondary'>OR</Typography>
-                <Link style={{ textDecoration: 'none' }} href='/register'><Button color="success" variant="contained">GET STARTED — ITS FREE!</Button></Link>
+                <Typography color='secondary'>No account?</Typography>
+                <Button color="success" variant="contained"><Link style={{ textDecoration: 'none' }} href='/register'><Typography color='secondary'>GET STARTED — ITS FREE!</Typography></Link></Button>
 
             </div>
 
