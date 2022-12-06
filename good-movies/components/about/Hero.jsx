@@ -16,26 +16,11 @@ function Hero() {
           <Typography>Save those you want to see.</Typography>
           <Typography>Tell your friends what’s good.</Typography>
         </div>
-        <div className="row pb-3 pt-3">
+        <div className="col pb-3 pt-3">
           <Stack spacing={2} direction="column">
             <Link style={{ textDecoration: 'none' }} href='/register'><Button color="success" variant="contained">GET STARTED — ITS FREE!</Button></Link>
             <Link style={{ textDecoration: 'none' }} href="/login"><Button variant="contained">Login</Button></Link>
           </Stack>
-          {/* <Link href="/register">
-              <button className="btn btn-alert my-2 text-light">
-                GET STARTED — ITS FREE!
-              </button>
-            </Link>
-
-            <p>
-              <Link
-                className="btn btn-lg btn-primary text-light"
-                href="/movie/search"
-                role="button"
-              >
-                SEARCH MOVIES »
-              </Link>
-            </p> */}
         </div>
 
         <div className="col-md-6"></div>

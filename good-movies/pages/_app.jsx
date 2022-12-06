@@ -10,6 +10,7 @@ import { blue, red, grey, black } from "@mui/material/colors";
 import SimpleBottomNavigation from "../components/nav/BottomNav";
 import { useRouter } from "next/router";
 import FloatingActionButtons from "../components/nav/FloatingActionButton";
+import { Container } from "@mui/system";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -93,6 +94,7 @@ function MyApp({ Component, pageProps }) {
            
             <AppBar />
             <Component {...pageProps} />
+            <Container sx={{height:'50px'}}></Container>
             {/* <Nav /> */}
             <SimpleBottomNavigation />
           </div>

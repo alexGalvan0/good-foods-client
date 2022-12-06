@@ -15,7 +15,7 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="container pb-5">
+                <div className="container">
 
                     <div className="row">
                         <div className="col-md-6">
@@ -23,8 +23,7 @@ function Home() {
 
                             <p><Link className="btn btn-lg btn-primary text-light" href="/movie/search" role="button">SEARCH MOVIES »</Link></p>
                         </div>
-                        <div className="col-md-6">
-                        </div>
+      
                     </div>
 
                 </div>

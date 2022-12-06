@@ -44,7 +44,7 @@ export default function SimpleBottomNavigation() {
     <Box style={{ position: "fixed", bottom: "0", width: "100vw" }}>
       <div
         className=""
-        style={{ position: "fixed", right: "0", bottom: "90px" }}
+        style={{ position: "fixed", right: "20px", bottom: "75px" }}
       >
         <FloatingActionButtons />
       </div>
