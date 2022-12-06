@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blue, red, grey, black } from "@mui/material/colors";
 import SimpleBottomNavigation from "../components/nav/BottomNav";
 import { useRouter } from "next/router";
+import FloatingActionButtons from "../components/nav/FloatingActionButton";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -89,11 +90,10 @@ function MyApp({ Component, pageProps }) {
               defer
             ></script>
             <div className="bg-dark"></div>
-
+           
             <AppBar />
-            <Component {...pageProps} />
+            <Component className='mb-5' {...pageProps} />
             {/* <Nav /> */}
-
             <SimpleBottomNavigation />
           </div>
         </motion.div>

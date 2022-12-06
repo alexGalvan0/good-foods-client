@@ -41,8 +41,8 @@ export default function SimpleBottomNavigation() {
   };
 
   return (
-    <Box style={{ position: "fixed", bottom: "0", width: "100vw"}}>
-      <div className="mb-4">
+    <Box style={{ position: "fixed", bottom: "0" , width: "100vw"}}>
+      <div className="mb-3" style={{position:'fixed', right:'0', bottom:'70px'}}>
         <FloatingActionButtons />
       </div>
       <BottomNavigation
