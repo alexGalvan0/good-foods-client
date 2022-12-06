@@ -24,7 +24,7 @@ export default function SnackbarAlert({
       uName == "" ||
       fName == "" ||
       lName == "" ||
-      eMail == "" ||
+      !eMail.includes('@','.com') ||
       passWord == ""
       
     )
