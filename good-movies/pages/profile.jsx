@@ -126,7 +126,7 @@ function Profile() {
           <div className="col mt-2 px-xl-5 d-flex gap-3 " >
             {followData.map((f) => (
               <div className="col">
-                <FollowCard key={f.id} userName={f.username} />
+                <FollowCard key={f.id} userName={f.username} userId={f.id} />
               </div>
 
             ))}

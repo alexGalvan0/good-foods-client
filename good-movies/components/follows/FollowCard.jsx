@@ -12,7 +12,7 @@ import useUser from '../../hooks/useUser';
 
 
 
-export default function FollowCard({userName}) {
+export default function FollowCard({userName, userId}) {
 const route = useRouter()
   const BASE_URL = 'https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/'
   const user = useUser()
@@ -20,6 +20,9 @@ const route = useRouter()
   const unFollowFriend = async () => {
     let req = axios.delete(`${BASE_URL}follow/${user.id}/${userName}/`)
     let resp = await req.data
+}
+const goToFriendProfile = () =>{
+  route.push(`user/${userId}`)
 }
 
   return (
@@ -30,7 +33,7 @@ const route = useRouter()
         </Typography>
       </CardContent>
       <CardActions>
-        <Button color='secondary' sx={{bgcolor:'primary.main'}} size="small">Visit</Button>
+        <Button onClick={goToFriendProfile} color='secondary' sx={{bgcolor:'primary.main'}} size="small">Visit</Button>
         <Button onClick={unFollowFriend} color='secondary' sx={{bgcolor:'primary.alert'}} size="small">Unfollow</Button>
       </CardActions>
     </Card>
