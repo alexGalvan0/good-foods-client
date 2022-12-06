@@ -15,12 +15,12 @@ const bull = (
   </Box>
 );
 
-export default function FollowCard() {
+export default function FollowCard({userName}) {
   return (
     <Card sx={{ maxWidth: 175,bgcolor:'secondary.grey' }}>
       <CardContent>
         <Typography variant="h5" component="div"color='secondary.main'>
-          @celine
+          @{userName}
         </Typography>
       </CardContent>
       <CardActions>

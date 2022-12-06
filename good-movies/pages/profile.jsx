@@ -4,23 +4,38 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
-import Box from "@mui/material";
 import FollowCard from '../components/follows/FollowCard'
 import { Container, Typography } from "@mui/material";
 
 function Profile() {
+
   let user = useUser();
   const url = `http://127.0.0.1:8000/api/getUserLikedMovies/${user.id}`;
+  const following = `http://127.0.0.1:8000/api/follow/${user.id}/james/`
 
   const [data, setData] = useState([]);
+  const [followData, setFollowData] = useState([]);
 
   useEffect(() => {
+    const token = localStorage.getItem('token')
+    const config = { headers: { Authorization: `Bearer ${token}` } }
+
     const getData = async () => {
-      const request = await axios.get(url);
-      const response = request;
-      setData(response.data);
+      const request = await axios.get(url, config);
+      const response = request.data;
+      setData(response);
     };
-    user.id != undefined ? getData() : null
+    const getFollowing = async () => {
+      const request = await axios.get(following, config)
+      const response = request.data
+      setFollowData(response)
+    }
+
+    const getAllUserData = () =>{
+      getData()
+      getFollowing()
+    }
+    user.id != undefined ? getAllUserData() : null
 
   }, [user]);
 
@@ -101,14 +116,22 @@ function Profile() {
             ))}
         </Container>
       </div>
-      <div className="row">
-        <div className="col d-flex flex-column">
+      <div className="row"> 
+        <div className="col d-flex flex-column"style={{
+            maxHeight: "40rem",
+            overflow: "hidden",
+            overflow: "auto",
+
+          }}>
           <Container sx={{ bgcolor: 'secondary.grey' }} className='rounded'>
             <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
           </Container>
 
-          <div className="col mt-2 px-xl-5">
-            <FollowCard />
+          <div className="col mt-2 px-xl-5 d-flex gap-1">
+            {followData.map((f) =>(
+              <FollowCard key={f.id} userName={f.username }/>
+            ))}
+            
           </div>
         </div>
       </div>
