@@ -37,10 +37,10 @@ function LoginForm() {
         <form>
 
             <div className=' container d-flex flex-column justify-content-center gap-3  p-3 rounded bg-primary' >
-                <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="User name" value={username} />
-                <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="Password" value={password} />
-                <Button type='submit' onClick={submit}><SnackbarAlert inputText2={username} inputText={password} message='Wrong input values' buttonText='Login' /></Button>
-                <Typography color='secondary'>No account?</Typography>
+                <input onChange={userNameInput} type="text" className="form-control bg-light" placeholder="USER NAME" value={username} />
+                <input onChange={passwordInput} type="password" className="form-control bg-light" id="exampleInputPassword1" placeholder="PASSWORD" value={password} />
+                <Button type='submit' onClick={submit}><SnackbarAlert inputText2={username} inputText={password} message='Wrong input values' buttonText='LOGIN' /></Button>
+                <Typography color='secondary'>NO ACCOUNT?</Typography>
                 <Button type='submit' color="success" variant="contained"><Link style={{ textDecoration: 'none' }} href='/register'><Typography color='secondary'>GET STARTED — ITS FREE!</Typography></Link></Button>
 
             </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios'
 import { Button } from '@mui/material';
 import Link from 'next/link'
-import Typography from '@mui/material';
+import Snackbar from '@mui/material';
 function RegisterForm() {
 
     //http://127.0.0.1:8000/api/register

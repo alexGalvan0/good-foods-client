@@ -39,7 +39,7 @@ const goHome = (e) => {
         <Box sx={{paddingRight:1}}>
         <img src='https://freesvg.org/img/Movie-Clapperboard.png' width={25} height={25} alt='movie'></img>
         </Box>
-          <Typography onClick={goHome} variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography onClick={goHome} variant="h6" component="div" sx={{ flexGrow: 1,fontWeight: 'bold'  }}>
             GOOD MOVIES
           </Typography>
           {auth && (
