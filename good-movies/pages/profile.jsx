@@ -11,7 +11,7 @@ function Profile() {
 
   let user = useUser();
   const url = `http://127.0.0.1:8000/api/getUserLikedMovies/${user.id}`;
-  const following = `http://127.0.0.1:8000/api/follow/${user.id}/james/`
+  const following = `http://127.0.0.1:8000/api/follow/${user.id}/${user.username}/`
 
   const [data, setData] = useState([]);
   const [followData, setFollowData] = useState([]);
@@ -29,9 +29,10 @@ function Profile() {
       const request = await axios.get(following, config)
       const response = request.data
       setFollowData(response)
+      console.log(response)
     }
 
-    const getAllUserData = () =>{
+    const getAllUserData = () => {
       getData()
       getFollowing()
     }
@@ -116,22 +117,20 @@ function Profile() {
             ))}
         </Container>
       </div>
-      <div className="row"> 
-        <div className="col d-flex flex-column"style={{
-            maxHeight: "40rem",
-            overflow: "hidden",
-            overflow: "auto",
-
-          }}>
+      <div className="row ">
+        <div className="col-fluid px-xl-5  d-flex flex-column justify-content-center" style={{ width: 'auto' }}>
           <Container sx={{ bgcolor: 'secondary.grey' }} className='rounded'>
             <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
           </Container>
 
-          <div className="col mt-2 px-xl-5 d-flex gap-1">
-            {followData.map((f) =>(
-              <FollowCard key={f.id} userName={f.username }/>
+          <div className="col mt-2 px-xl-5 d-flex gap-3 " >
+            {followData.map((f) => (
+              <div className="col">
+                <FollowCard key={f.id} userName={f.username} />
+              </div>
+
             ))}
-            
+
           </div>
         </div>
       </div>
