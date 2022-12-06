@@ -21,7 +21,7 @@ function LoginForm() {
     const submit = async (e) => {
         e.preventDefault()
         try {
-            const user = axios.post('http://127.0.0.1:8000/api/token', {
+            const user = axios.post('https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/token', {
                 "username": username,
                 "password": password
             })

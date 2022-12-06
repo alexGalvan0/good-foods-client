@@ -5,17 +5,18 @@ import Link from 'next/link'
 import Button from '@mui/material/Button';
 import useUser from '../../hooks/useUser'
 import { Container } from "@mui/system";
-
+import { useRouter } from "next/router";
 
 
 
 
 
 function MovieSearch() {
+    const route = useRouter()
     const user = useUser()
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY
     const OMDB_URL = "https://www.omdbapi.com/"
-    const BASE_URL = "http://127.0.0.1:8000/api/"
+    const BASE_URL = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/"
 
     const [data, setData] = useState([]);
     const [search, setSearch] = useState('')
@@ -59,7 +60,8 @@ function MovieSearch() {
         let username = data.username
         let req = axios.post(`${BASE_URL}follow/${user.id}/${username}/`)
         let resp = await req
-
+        route.push('../profile')
+        
     }
 
 

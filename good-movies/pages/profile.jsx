@@ -10,8 +10,8 @@ import { Container, Typography } from "@mui/material";
 function Profile() {
 
   let user = useUser();
-  const url = `http://127.0.0.1:8000/api/getUserLikedMovies/${user.id}`;
-  const following = `http://127.0.0.1:8000/api/follow/${user.id}/${user.username}/`
+  const url = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/getUserLikedMovies/${user.id}/`;
+  const following = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/follow/${user.id}/${user.username}/`
 
   const [data, setData] = useState([]);
   const [followData, setFollowData] = useState([]);
@@ -41,7 +41,7 @@ function Profile() {
   }, [user]);
 
   const deleteLikedMovie = async (imdbId) => {
-    await axios.delete(`http://127.0.0.1:8000/api/addLikedList/${user.id}/${imdbId}/`);
+    await axios.delete(`https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addLikedList/${user.id}/${imdbId}/`);
     const request = await axios.get(url);
     const response = request;
     setData(response.data);

@@ -10,7 +10,7 @@ const useUser = () => {
         const token = localStorage.getItem('token')
 
         const config = { headers: { Authorization: `Bearer ${token}` } }
-        const url = "http://127.0.0.1:8000/api/user"
+        const url = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/user"
         const req = async () => {
             if (token) {
                 const data = axios.get(url, config)
