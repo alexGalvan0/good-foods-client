@@ -117,13 +117,13 @@ function Profile() {
             ))}
         </Container>
       </div>
-      <div className="row ">
-        <div className="col-fluid px-xl-5  d-flex flex-column justify-content-center" style={{ width: 'auto' }}>
+      <div className="row pb-5 mb-5">
+        <div className="col px-xl-5  d-flex flex-column justify-content-center">
           <Container sx={{ bgcolor: 'secondary.grey' }} className='rounded'>
             <Typography color='secondary.main' variant={'h5'}>Following: </Typography>
           </Container>
 
-          <div className="col mt-2 px-xl-5 d-flex gap-3 " >
+          <div className="col mt-2 px-xl-5 d-flex flex-wrap gap-3" >
             {followData.map((f) => (
               <div className="col">
                 <FollowCard key={f.id} userName={f.username} userId={f.id} />

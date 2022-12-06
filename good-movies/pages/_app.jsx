@@ -92,7 +92,7 @@ function MyApp({ Component, pageProps }) {
             <div className="bg-dark"></div>
            
             <AppBar />
-            <Component className='mb-5' {...pageProps} />
+            <Component {...pageProps} />
             {/* <Nav /> */}
             <SimpleBottomNavigation />
           </div>

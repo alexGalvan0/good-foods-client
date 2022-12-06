@@ -41,13 +41,16 @@ export default function SimpleBottomNavigation() {
   };
 
   return (
-    <Box style={{ position: "fixed", bottom: "0" , width: "100vw"}}>
-      <div className="mb-3" style={{position:'fixed', right:'0', bottom:'70px'}}>
+    <Box style={{ position: "fixed", bottom: "0", width: "100vw" }}>
+      <div
+        className=""
+        style={{ position: "fixed", right: "0", bottom: "90px" }}
+      >
         <FloatingActionButtons />
       </div>
       <BottomNavigation
-        sx={{ bgcolor: "secondary.grey", paddingBottom: 2 }}
-        showLabels
+        sx={{ bgcolor: "secondary.grey"}}
+        
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
@@ -56,7 +59,6 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction
           sx={{ bgcolor: "primary" }}
           onClick={goHome}
-          label="HOME"
           icon={<HomeIcon color="secondary" />}
         />
         {user ? (
