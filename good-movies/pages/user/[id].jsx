@@ -51,7 +51,7 @@ function FollowingProfile() {
         ))}
       </Box>
       <Typography variant="h6" color="secondary">
-        MOVIES LIKED:
+        MOVIES WATCHED:
       </Typography>
     </Container>
   );
