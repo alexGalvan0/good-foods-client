@@ -22,7 +22,6 @@ function ButtonGroup({ mData }) {
     run_time: mData.Runtime,
   };
   const headers = { Authorization: `Bearer ${token}` } 
-  console.log(token)
 
   const addMovieToDb = async () => {
     try {

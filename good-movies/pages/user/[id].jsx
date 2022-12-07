@@ -21,7 +21,6 @@ function FollowingProfile() {
             const request = await axios.get(url);
             const response = request.data;
             setData(response);
-            console.log(response)
           };
           getData()
     },[])
@@ -29,7 +28,9 @@ function FollowingProfile() {
     return(
         <>
         {data.map((d)=>(
+          <Link href={`/movie/${d.imdbId}`}>
           <Image key={d.id} src={d.poster} height={200} width={150} alt='poster'></Image>
+          </Link>
         ))}
       </>
     )
