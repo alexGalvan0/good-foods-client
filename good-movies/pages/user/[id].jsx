@@ -32,8 +32,9 @@ function FollowingProfile() {
   return (
     <Container>
       <Typography variant="h2" color="secondary">
-        {userData.first_name}
+        @{userData.username}
       </Typography>
+      <Typography variant='h6' color='secondary'>MOVIES LIKED: </Typography>
       {data.map((d) => (
         <Link href={`/movie/${d.imdbId}`} key={d.id + "l"}>
           <Image

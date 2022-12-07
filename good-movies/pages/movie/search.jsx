@@ -107,7 +107,7 @@ function MovieSearch() {
                     key={d.imdbID}
                     href={`/movie/${d.imdbID}`}
                   >
-                    <Image
+                    <img
                       key={d.imdbID}
                       src={d.Poster}
                       alt={d.Title}
