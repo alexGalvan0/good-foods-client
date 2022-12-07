@@ -10,8 +10,7 @@ function FollowingProfile() {
   const router = useRouter();
   const [userData, setUserData] = useState([]);
   const { id } = router.query;
-  const BASE_URL =
-    "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/";
+  const BASE_URL = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/following/${id}/`;
   const url = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/getUserLikedMovies/${id}/`;
 
   useEffect(() => {
@@ -19,15 +18,24 @@ function FollowingProfile() {
       const request = await axios.get(url);
       const response = request.data;
       setData(response);
+    }
+    const getUserData = async () => {
+      const request = await axios.get(BASE_URL);
+      const response = request.data;
+      setUserData(response);
     };
+    
+    getUserData();
     getData();
   }, []);
 
   return (
     <Container>
-      <Typography>Profile</Typography>
+      <Typography variant="h2" color="secondary">
+        {userData.first_name}
+      </Typography>
       {data.map((d) => (
-        <Link href={`/movie/${d.imdbId}`} key={d.id+'l'}>
+        <Link href={`/movie/${d.imdbId}`} key={d.id + "l"}>
           <Image
             src={d.poster}
             key={d.id}
