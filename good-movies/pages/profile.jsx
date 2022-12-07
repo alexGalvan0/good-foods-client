@@ -63,7 +63,12 @@ function Profile() {
     const response = request;
     setWatched(response.data);
   };
-
+  const deletedFriend = async (userName) => {
+    await axios.delete();
+    const request = await axios.get(`https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/follow/${user.id}/${user.username}/`);
+    const response = request;
+    setFollowData(response.data);
+  };
   return (
     <div className="container mt-3">
       <div className="row">
@@ -221,7 +226,7 @@ function Profile() {
           <div className="col mt-2 px-xl-5 d-flex flex-wrap gap-3">
             {followData.map((f) => (
               <div className="col">
-                <FollowCard key={f.id} userName={f.username} userId={f.id} />
+                <FollowCard onClick={() => {deletedFriend(f.username)}} key={f.id} userName={f.username} userId={f.id} />
               </div>
             ))}
           </div>

@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 function Hero() {
 
   return (
-    <div className="jumbotron pt-5  p-md-5 text-white rounded d-flex justify-content-center">
+    <div className="jumbotron pt-3  p-md-5 text-white rounded d-flex justify-content-center">
       <div className="col-md-6 pb-0 text-center">
       <img src='https://freesvg.org/img/Movie-Clapperboard.png' width={200} height={200} alt='movie'></img>
 

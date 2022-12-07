@@ -39,7 +39,13 @@ function FollowingProfile() {
   }, []);
 
   return (
-    <Container>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
       <Box sx={{ paddingBottom: 3 }}>
         <Typography variant="h2" color="secondary">
           @{userData.username}
