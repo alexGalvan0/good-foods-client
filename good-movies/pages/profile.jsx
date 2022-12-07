@@ -125,6 +125,65 @@ function Profile() {
               </div>
             ))}
         </Container>
+
+
+
+        <Container sx={{ bgcolor: "secondary.grey" }}>
+          <Typography color="secondary.main" variant={"h5"}>
+            Watched Movies:{" "}
+          </Typography>
+        </Container>
+        <Container
+          className=" d-flex gap-3  mb-3 py-2 "
+          sx={{ bgcolor: "secondary.grey" }}
+          style={{
+            maxHeight: "40rem",
+            overflow: "hidden",
+            overflow: "auto",
+          }}
+        >
+          {Array.isArray(data) &&
+            data.map((m) => (
+              <div className="col d-flex flex-column">
+               
+                <div>
+                  <Button
+                    sx={{
+                      marginBottom: -4.5,
+                      paddingLeft: 17.5,
+                      paddingRight: 0,
+                    }}
+                    varient="text"
+                    color="alert"
+                    size="large"
+                    onClick={() => {
+                      deleteLikedMovie(m.imdbId);
+                    }}
+                    className="btn-alert"
+                    key={m.imdbId}
+                  >
+                    x
+                  </Button>
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    href={`/movie/${m.imdbId}`}
+                    key={m.imdbId + 'm'}
+                  >
+                    <div className="d-flex text-center">
+                      <Image
+                        key={m.imdbId + 'i'}
+                        src={m.poster}
+                        alt=""
+                        height={200}
+                        width={150}
+                      />
+                      <div className="d-flex  flex-column align-items-center"></div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            ))}
+        </Container>
       </div>
       <div className="row pb-5 mb-5">
         <div className="col px-xl-5  d-flex flex-column justify-content-center">
