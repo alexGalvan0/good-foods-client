@@ -44,17 +44,19 @@ function ButtonGroup({ mData }) {
 
   return (
     <div
-      className="btn-group gap-1 bg-dark mb-5"
+      className="btn-group bg-dark mb-5"
       role="group"
       aria-label="Basic example"
     >
       <Link href="/profile">
+        <div className="d-flex">
         <Button size='small' variant='contained' onClick={likeMovie} sx={{bgcolor:'secondary'}} >
           Like
         </Button>
         <Button size='small' variant='contained' onClick={watchedMovie} sx={{bgcolor:'secondary'}} >
           Watched
         </Button>
+        </div>
       </Link>
     </div>
   );

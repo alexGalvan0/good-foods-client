@@ -73,20 +73,20 @@ function Profile() {
               <h1 className="display-5 fw-bold text-light">
                 @{user.username ? user.username : null}
               </h1>
-              <Container>
+              <div className="d-flex flex-md-column gap-2">
                 <h6 className="text-light">
                   {" "}
-                  Movies Liked: <strong>{data.length}</strong>
+                   Liked: <strong>{data.length}</strong>
                 </h6>
                 <h6 className="text-light">
                   {" "}
-                  Movies Watched: <strong>{watched.length}</strong>
+                   Watched: <strong>{watched.length}</strong>
                 </h6>
                 <h6 className="text-light">
                   {" "}
-                  Users Following: <strong>{followData.length}</strong>
+                   Following: <strong>{followData.length}</strong>
                 </h6>
-              </Container>
+              </div>
               <Link href="movie/search">
                 <Button sx={{ bgcolor: "primary.main" }} color="secondary">
                   Search Movies

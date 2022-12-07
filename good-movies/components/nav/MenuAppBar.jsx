@@ -34,7 +34,7 @@ export default function MenuAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ bgcolor: "primary" }}>
-        <Toolbar>
+        <Toolbar sx={{paddingBottom:2}}>
           <Link href="/">
             <Box sx={{ paddingRight: 1 }}>
               <img
