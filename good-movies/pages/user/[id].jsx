@@ -11,7 +11,7 @@ function FollowingProfile() {
 
     useEffect(() =>{
         const getData = async () => {
-            const req = axios.get(`${BASE_URL}users/${id}`)
+            const req = axios.get(`${BASE_URL}following/${id}`)
             const resp = await req
             setUserData(resp.data)
 
