@@ -32,9 +32,9 @@ const goToFriendProfile = () =>{
           @{userName}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions className='d-flex justify-content-around'>
         <Button onClick={goToFriendProfile} color='secondary' sx={{bgcolor:'primary.main'}} size="small">Visit</Button>
-        <Button onClick={unFollowFriend} color='secondary' sx={{bgcolor:'primary.alert'}} size="small">Unfollow</Button>
+        <Typography onClick={unFollowFriend} color='primary.alert'>X</Typography>
       </CardActions>
     </Card>
   );
