@@ -11,9 +11,11 @@ function Profile() {
   let user = useUser();
   const url = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/getUserLikedMovies/${user.id}/`;
   const following = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/follow/${user.id}/${user.username}/`;
+  const watchUrl = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/getUserWatchedMovies/${user.id}/`;
 
   const [data, setData] = useState([]);
   const [followData, setFollowData] = useState([]);
+  const [watched, setWatched] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -30,9 +32,16 @@ function Profile() {
       setFollowData(response);
     };
 
+    const getWatched = async () => {
+      const request = await axios.get(watchUrl, config);
+      const response = request.data;
+      setWatched(response);
+    };
+
     const getAllUserData = () => {
       getData();
       getFollowing();
+      getWatched();
     };
     user.id != undefined ? getAllUserData() : null;
   }, [user]);
@@ -46,6 +55,15 @@ function Profile() {
     setData(response.data);
   };
 
+  const deleteWatchedMovie = async (imdbId) => {
+    await axios.delete(
+      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addWatchedList/${user.id}/${imdbId}/`
+    );
+    const request = await axios.get(watchUrl);
+    const response = request;
+    setWatched(response.data);
+  };
+
   return (
     <div className="container mt-3">
       <div className="row">
@@ -55,9 +73,20 @@ function Profile() {
               <h1 className="display-5 fw-bold text-light">
                 @{user.username ? user.username : null}
               </h1>
-              <h6 className="text-light"> Movies Liked: {data.length}</h6>
-              <h6 className="text-light"> Users Following: {followData.length}</h6>
-
+              <Container>
+                <h6 className="text-light">
+                  {" "}
+                  Movies Liked: <strong>{data.length}</strong>
+                </h6>
+                <h6 className="text-light">
+                  {" "}
+                  Movies Watched: <strong>{watched.length}</strong>
+                </h6>
+                <h6 className="text-light">
+                  {" "}
+                  Users Following: <strong>{followData.length}</strong>
+                </h6>
+              </Container>
               <Link href="movie/search">
                 <Button sx={{ bgcolor: "primary.main" }} color="secondary">
                   Search Movies
@@ -86,7 +115,6 @@ function Profile() {
           {Array.isArray(data) &&
             data.map((m) => (
               <div className="col d-flex flex-column">
-               
                 <div>
                   <Button
                     sx={{
@@ -108,11 +136,11 @@ function Profile() {
                   <Link
                     style={{ textDecoration: "none" }}
                     href={`/movie/${m.imdbId}`}
-                    key={m.imdbId + 'm'}
+                    key={m.imdbId + "m"}
                   >
                     <div className="d-flex text-center">
                       <Image
-                        key={m.imdbId + 'i'}
+                        key={m.imdbId + "i"}
                         src={m.poster}
                         alt=""
                         height={200}
@@ -125,8 +153,6 @@ function Profile() {
               </div>
             ))}
         </Container>
-
-
 
         <Container sx={{ bgcolor: "secondary.grey" }}>
           <Typography color="secondary.main" variant={"h5"}>
@@ -142,10 +168,9 @@ function Profile() {
             overflow: "auto",
           }}
         >
-          {Array.isArray(data) &&
-            data.map((m) => (
+          {Array.isArray(watched) &&
+            watched.map((m) => (
               <div className="col d-flex flex-column">
-               
                 <div>
                   <Button
                     sx={{
@@ -157,7 +182,7 @@ function Profile() {
                     color="alert"
                     size="large"
                     onClick={() => {
-                      deleteLikedMovie(m.imdbId);
+                      deleteWatchedMovie(m.imdbId);
                     }}
                     className="btn-alert"
                     key={m.imdbId}
@@ -167,11 +192,11 @@ function Profile() {
                   <Link
                     style={{ textDecoration: "none" }}
                     href={`/movie/${m.imdbId}`}
-                    key={m.imdbId + 'm'}
+                    key={m.imdbId + "m"}
                   >
                     <div className="d-flex text-center">
                       <Image
-                        key={m.imdbId + 'i'}
+                        key={m.imdbId + "i"}
                         src={m.poster}
                         alt=""
                         height={200}
