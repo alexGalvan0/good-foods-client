@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import useUser from '../../hooks/useUser'
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 
 function MovieSearch() {

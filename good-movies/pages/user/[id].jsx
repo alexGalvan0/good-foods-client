@@ -29,7 +29,7 @@ function FollowingProfile() {
     return(
         <>
         {data.map((d)=>(
-          <img key={d.id} src={d.poster} height={200} width={150} alt='poster'></img>
+          <Image key={d.id} src={d.poster} height={200} width={150} alt='poster'></Image>
         ))}
       </>
     )
