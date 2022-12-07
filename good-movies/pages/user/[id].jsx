@@ -27,7 +27,7 @@ function FollowingProfile() {
     <Container>
       <Typography>Profile</Typography>
       {data.map((d) => (
-        <Link href={`/movie/${d.imdbId}`}>
+        <Link href={`/movie/${d.imdbId}`} key={d.id+'l'}>
           <Image
             src={d.poster}
             key={d.id}

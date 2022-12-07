@@ -1,120 +1,165 @@
 import axios from "axios";
-import { useState } from "react"
+import { useState } from "react";
 import Toggle from "../../components/search/Toggle";
-import Link from 'next/link'
-import Button from '@mui/material/Button';
-import useUser from '../../hooks/useUser'
+import Link from "next/link";
+import Button from "@mui/material/Button";
+import useUser from "../../hooks/useUser";
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-
 function MovieSearch() {
-    const route = useRouter()
-    const user = useUser()
-    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
-    const OMDB_URL = "https://www.omdbapi.com/"
-    const BASE_URL = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/"
+  const route = useRouter();
+  const user = useUser();
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+  const OMDB_URL = "https://www.omdbapi.com/";
+  const BASE_URL =
+    "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/";
 
-    const [data, setData] = useState([]);
-    const [search, setSearch] = useState('')
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
 
-    const [searchType, setSearchType] = useState('movie')
-    const [movieResults, setMovieResults] = useState(false)
-    const [userResults, setUserResults] = useState(false)
-    let title = search.replaceAll(' ', '+')
+  const [searchType, setSearchType] = useState("movie");
+  const [movieResults, setMovieResults] = useState(false);
+  const [userResults, setUserResults] = useState(false);
+  let title = search.replaceAll(" ", "+");
 
+  const getMovies = async () => {
+    let req = axios.get(
+      `${OMDB_URL}?apikey=${API_KEY}&s=${title}&type=movie&page=1`
+    );
+    let resp = await req;
+    setData(resp.data.Search);
+  };
+  const getSearch = (e) => {
+    setSearch(e.target.value);
+  };
+  const results = () => {
+    setMovieResults(true);
+  };
 
-    const getMovies = async () => {
-        let req = axios.get(`${OMDB_URL}?apikey=${API_KEY}&s=${title}&type=movie&page=1`)
-        let resp = await req
-        setData(resp.data.Search)
+  const getFriends = async () => {
+    let req = axios.get(`${BASE_URL}getUserByUsername/${search}`);
+    let resp = await req;
+    setData(resp.data);
+  };
+
+  const displayResult = () => {
+    if (searchType === "movie") {
+      getMovies();
+      results();
     }
-    const getSearch = (e) => {
-        setSearch(e.target.value)
+    if (searchType === "user") {
+      getFriends();
     }
-    const results = () => {
-        setMovieResults(true)
-    }
+  };
 
-    const getFriends = async () => {
-        let req = axios.get(`${BASE_URL}getUserByUsername/${search}`)
-        let resp = await req
-        setData(resp.data)
-    }
+  const followFriend = async () => {
+    let username = data.username;
+    let req = axios.post(`${BASE_URL}follow/${user.id}/${username}/`);
+    let resp = await req;
+    route.push("../profile");
+  };
 
-    const displayResult = () => {
-        if (searchType === 'movie') {
-            getMovies()
-            results()
-        }
-        if (searchType === 'user') {
-            getFriends()
-
-        }
-    }
-
-    const followFriend = async () => {
-        let username = data.username
-        let req = axios.post(`${BASE_URL}follow/${user.id}/${username}/`)
-        let resp = await req
-        route.push('../profile')
-        
-    }
-
-
-
-    return (
-        <div className="container bg-dark mt-3 pt-3">
-            <div className="row pb-3">
-                <div className="col col-lg-4">
-                    <Toggle setSearchType={setSearchType} />
-                    <input type="search" onChange={getSearch} value={search} className="form-control form-control-dark text-bg-light mb-3" placeholder="Search..." aria-label="Search" />
-                    <Button sx={{ bgcolor: 'primary.main' }} color='secondary' onClick={displayResult}>Search</Button>
-                </div>
-            </div>
-            {searchType == 'movie' &&
-                movieResults ?
-                <div>
-                    <div className="row">
-                        <div className="col">
-                            <h2 className="text-light">Movies: </h2>
-                        </div>
-                    </div>
-                    <div className="row mb-5 pb-5">
-                        <Container sx={{ bgcolor: 'secondary.grey' }} className=" mb-5 d-flex gap-5 p-3 rounded" style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
-                            {data.splice(0, 5).length > 0 ? data.map((d) => (
-                                <Link className="rounded" href={`/movie/${d.imdbID}`}><img key={d.imdbID} src={d.Poster} alt={d.Title} width={250} height={400} /></Link>
-                            )) : <></>}
-                        </Container>
-                    </div>
-                </div>
-                : null}
-
-            {searchType == 'user' &&
-                data ?
-                <div className="col-lg-3">
-                    <div className="row">
-                        <div className="col">
-                            <h2 className="text-light">Users: </h2>
-                        </div>
-                    </div>
-                    <div className="row mb-5 pb-5">
-                        <div className=" mb-5  bg-dark rounded " style={{ maxWidth: '100vw', overflow: 'hidden', overflow: 'auto' }}>
-                            <h2 className="text-light">@{data.username}</h2>
-                            <div className="col-4 d-flex flex-column pb-2">
-                                <d className="col-3 d-flex gap-1">
-                                    <p className="text-light">{data.first_name}</p>
-                                    <p className="text-light">{data.last_name}</p>
-                                </d>
-                                <Button onClick={followFriend} sx={{ bgcolor: 'primary.main' }} color='secondary'>Follow</Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                : null}
+  return (
+    <div className="container bg-dark mt-3 pt-3">
+      <div className="row pb-3">
+        <div className="col col-lg-4">
+          <Toggle setSearchType={setSearchType} />
+          <input
+            type="search"
+            onChange={getSearch}
+            value={search}
+            className="form-control form-control-dark text-bg-light mb-3"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+          <Button
+            sx={{ bgcolor: "primary.main" }}
+            color="secondary"
+            onClick={displayResult}
+          >
+            Search
+          </Button>
         </div>
-    )
+      </div>
+      {searchType == "movie" && movieResults ? (
+        <div>
+          <div className="row">
+            <div className="col">
+              <h2 className="text-light">Movies: </h2>
+            </div>
+          </div>
+          <div className="row mb-5 pb-5">
+            <Container
+              sx={{ bgcolor: "secondary.grey" }}
+              className=" mb-5 d-flex gap-5 p-3 rounded"
+              style={{
+                maxWidth: "100vw",
+                overflow: "hidden",
+                overflow: "auto",
+              }}
+            >
+              {data.splice(0, 5).length > 0 ? (
+                data.map((d) => (
+                  <Link
+                    className="rounded"
+                    key={d.imdbID}
+                    href={`/movie/${d.imdbID}`}
+                  >
+                    <Image
+                      key={d.imdbID}
+                      src={d.Poster}
+                      alt={d.Title}
+                      width={250}
+                      height={400}
+                    />
+                  </Link>
+                ))
+              ) : (
+                <></>
+              )}
+            </Container>
+          </div>
+        </div>
+      ) : null}
+
+      {searchType == "user" && data ? (
+        <div className="col-lg-3">
+          <div className="row">
+            <div className="col">
+              <h2 className="text-light">Users: </h2>
+            </div>
+          </div>
+          <div className="row mb-5 pb-5">
+            <div
+              className=" mb-5  bg-dark rounded "
+              style={{
+                maxWidth: "100vw",
+                overflow: "hidden",
+                overflow: "auto",
+              }}
+            >
+              <h2 className="text-light">@{data.username}</h2>
+              <div className="col-4 d-flex flex-column pb-2">
+                <d className="col-3 d-flex gap-1">
+                  <p className="text-light">{data.first_name}</p>
+                  <p className="text-light">{data.last_name}</p>
+                </d>
+                <Button
+                  onClick={followFriend}
+                  sx={{ bgcolor: "primary.main" }}
+                  color="secondary"
+                >
+                  Follow
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
 }
 
 export default MovieSearch;

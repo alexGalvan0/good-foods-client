@@ -28,7 +28,6 @@ function Profile() {
       const request = await axios.get(following, config);
       const response = request.data;
       setFollowData(response);
-      console.log(response);
     };
 
     const getAllUserData = () => {
@@ -86,6 +85,7 @@ function Profile() {
           {Array.isArray(data) &&
             data.map((m) => (
               <div className="col d-flex flex-column">
+               
                 <div>
                   <Button
                     sx={{
@@ -100,16 +100,18 @@ function Profile() {
                       deleteLikedMovie(m.imdbId);
                     }}
                     className="btn-alert"
+                    key={m.imdbId}
                   >
                     x
                   </Button>
                   <Link
                     style={{ textDecoration: "none" }}
                     href={`/movie/${m.imdbId}`}
+                    key={m.imdbId + 'm'}
                   >
                     <div className="d-flex text-center">
                       <Image
-                        key={m.imdbId}
+                        key={m.imdbId + 'i'}
                         src={m.poster}
                         alt=""
                         height={200}
@@ -118,7 +120,6 @@ function Profile() {
                       <div className="d-flex  flex-column align-items-center"></div>
                     </div>
                   </Link>
-                  <div></div>
                 </div>
               </div>
             ))}
