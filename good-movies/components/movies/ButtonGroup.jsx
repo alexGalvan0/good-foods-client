@@ -24,19 +24,23 @@ function ButtonGroup({ mData }) {
   const headers = { Authorization: `Bearer ${token}` } 
 
   const addMovieToDb = async () => {
-    try {
-      await axios.post(url, config, { headers: { Authorization: `Bearer ${token}` } });
-    } catch {
-      return;
-    }
+    await axios.post(url, config, { headers: { Authorization: `Bearer ${token}` } })
+    .catch(function (err){return});
   };
   const likeMovie = async () => {
     await addMovieToDb();
     let request = axios.post(
       `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addLikedList/${user.id}/${mData.imdbID}/`
     );
-    let response = await request;
+
   };
+  const  watchedMovie = async () => {
+    await addMovieToDb();
+    let request = axios.post(
+      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addWatchedList/${user.id}/${mData.imdbID}/`
+    );
+
+  }
 
   return (
     <div
@@ -47,6 +51,9 @@ function ButtonGroup({ mData }) {
       <Link href="/profile">
         <Button size='small' variant='contained' onClick={likeMovie} sx={{bgcolor:'secondary'}} >
           Like
+        </Button>
+        <Button size='small' variant='contained' onClick={watchedMovie} sx={{bgcolor:'secondary'}} >
+          Watched
         </Button>
       </Link>
     </div>
