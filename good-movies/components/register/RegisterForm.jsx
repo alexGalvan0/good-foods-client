@@ -50,7 +50,7 @@ function RegisterForm() {
         axios.post(
           "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/register",
           {
-            username: username,
+            username: username.toLowerCase(),
             first_name: fname,
             last_name: lname,
             email: email,

@@ -56,6 +56,7 @@ function Profile() {
                 @{user.username ? user.username : null}
               </h1>
               <h6 className="text-light"> Movies Liked: {data.length}</h6>
+              <h6 className="text-light"> Users Following: {followData.length}</h6>
 
               <Link href="movie/search">
                 <Button sx={{ bgcolor: "primary.main" }} color="secondary">

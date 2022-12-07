@@ -22,7 +22,7 @@ function LoginForm() {
         e.preventDefault()
         try {
             const user = axios.post('https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/token', {
-                "username": username,
+                "username": username.toLowerCase(),
                 "password": password
             })
             const res = await user

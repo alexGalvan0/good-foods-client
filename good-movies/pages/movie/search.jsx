@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import useUser from "../../hooks/useUser";
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
-import Image from "next/image";
+
 
 function MovieSearch() {
   const route = useRouter();
@@ -39,15 +39,26 @@ function MovieSearch() {
   };
 
   const getFriends = async () => {
-    let req = axios.get(`${BASE_URL}getUserByUsername/${search}`);
-    let resp = await req;
-    setData(resp.data);
+    try{
+      let lowerSearch = search.toLowerCase()
+      let req = axios.get(`${BASE_URL}getUserByUsername/${lowerSearch}`);
+      let resp = await req;
+      setData(resp.data);
+    } catch {
+      setData('no user found')
+    }
   };
 
   const displayResult = () => {
-    if (searchType === "movie") {
-      getMovies();
-      results();
+    if (searchType === "movie" && search != '') {
+      try{
+        getMovies();
+        results();
+      } catch {
+        alert ('Movie Not Found')
+      }
+    
+
     }
     if (searchType === "user") {
       getFriends();
@@ -100,7 +111,7 @@ function MovieSearch() {
                 overflow: "auto",
               }}
             >
-              {data.splice(0, 5).length > 0 ? (
+              {data != undefined && data.splice(0, 5).length > 0 ? (
                 data.map((d) => (
                   <Link
                     className="rounded"
@@ -124,7 +135,7 @@ function MovieSearch() {
         </div>
       ) : null}
 
-      {searchType == "user" && data ? (
+      {searchType == "user" && data!= undefined ? (
         <div className="col-lg-3">
           <div className="row">
             <div className="col">
