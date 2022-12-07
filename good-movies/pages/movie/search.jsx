@@ -8,9 +8,6 @@ import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 
 
-
-
-
 function MovieSearch() {
     const route = useRouter()
     const user = useUser()
