@@ -35,4 +35,4 @@ function FollowingProfile() {
       </>
     )
 }
-export default FollowingProfile
+export default FollowingProfile 
