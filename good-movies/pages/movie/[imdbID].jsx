@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 function MovieProfile({mData, uData}) {
-    const API_KEY = "b29c9a1a"
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
     const router = useRouter();
 
@@ -19,7 +19,7 @@ function MovieProfile({mData, uData}) {
  
     useEffect(() => {
         const req = async () => {
-            let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}&plot=full`
+            let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
             const data = axios.get(url)
             const response = await data
             setMovieData(response.data)
@@ -32,13 +32,13 @@ function MovieProfile({mData, uData}) {
     mData = movieData
     uData = useUser()
     return (
-        <div className="container rounded border bg-primary p-2 my-5 text-center text-lg-start mb-5 pb-5">
+        <div className="container rounded bg-primary my-5 text-center text-lg-start mb-5 pb-5">
             <div className="row">
                 <div className="col">
                     <div className="media">
                         <img src={movieData.Poster} className="mr-3" alt="movie" />
                         <div className="media-body">
-                            <h3 className="mt-2 text-light">{movieData.Title}</h3>
+                            <h3 className="bold mt-2 text-light">{movieData.Title}</h3>
                             <p className='text-light'>Plot: {movieData.Plot}</p>
                             <p className='text-light'>Director: {movieData.Director}</p>
                             <p className='text-light'>Rated: {movieData.Rated}</p>

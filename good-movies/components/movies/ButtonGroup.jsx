@@ -1,11 +1,13 @@
 import axios from "axios";
 import Link from "next/link";
 import useUser from "../../hooks/useUser";
+import { Button } from "@mui/material";
 
 function ButtonGroup({ mData }) {
-  const user = useUser();
-  const url = "http://127.0.0.1:8000/api/movies/";
 
+  const user = useUser();
+  const url = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/movies/";
+  const token = localStorage.getItem('token')
   const config = {
     title: mData.Title,
     plot: mData.Plot,
@@ -19,43 +21,43 @@ function ButtonGroup({ mData }) {
     //roten_score:mData.Ratings.toString(),
     run_time: mData.Runtime,
   };
+  const headers = { Authorization: `Bearer ${token}` } 
 
   const addMovieToDb = async () => {
-    try {
-      await axios.post(url, config);
-    } catch {
-      return;
-    }
+    await axios.post(url, config, { headers: { Authorization: `Bearer ${token}` } })
+    .catch(function (err){return});
   };
   const likeMovie = async () => {
     await addMovieToDb();
     let request = axios.post(
-      `http://127.0.0.1:8000/api/addLikedList/${user.id}/${mData.imdbID}/`
+      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addLikedList/${user.id}/${mData.imdbID}/`
     );
-    let response = await request;
+
   };
+  const  watchedMovie = async () => {
+    await addMovieToDb();
+    let request = axios.post(
+      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addWatchedList/${user.id}/${mData.imdbID}/`
+    );
+
+  }
 
   return (
     <div
-      className="btn-group gap-1 bg-dark mb-5"
+      className="btn-group bg-dark mb-5"
       role="group"
       aria-label="Basic example"
     >
       <Link href="/profile">
-        <button
-          onClick={likeMovie}
-          type="button"
-          className="btn btn-alert text-light"
-        >
+        <div className="d-flex">
+        <Button size='small' variant='contained' onClick={likeMovie} sx={{bgcolor:'secondary'}} >
           Like
-        </button>
+        </Button>
+        <Button size='small' variant='contained' onClick={watchedMovie} sx={{bgcolor:'secondary'}} >
+          Watched
+        </Button>
+        </div>
       </Link>
-      <button type="button" className="btn btn-alert text-light">
-        Add Watch List
-      </button>
-      <button type="button" className="btn btn-alert text-light">
-        Review
-      </button>
     </div>
   );
 }

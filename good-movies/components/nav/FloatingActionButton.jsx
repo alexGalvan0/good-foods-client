@@ -13,7 +13,7 @@ export default function FloatingActionButtons() {
     }
   return (
     <div className='text-end floating-search'>
-    <Box sx={{ '& > :not(style)': { mr: 3 } }}>
+    <Box >
       <Fab onClick={goToSearchMovie} color="primary" aria-label="add">
         <SearchIcon />
       </Fab>
