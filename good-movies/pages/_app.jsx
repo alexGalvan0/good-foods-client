@@ -66,6 +66,8 @@ function MyApp({ Component, pageProps }) {
                 content="initial-scale=1, viewport-fit=cover"
               />
               <link rel="manifest" href="/site.webmanifest" />
+              <link rel="apple-touch-icon" href="/icon.png" />
+              <meta name="theme-color" content="#191b1d" />
               <Script
                 src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"
                 defer
@@ -91,10 +93,10 @@ function MyApp({ Component, pageProps }) {
               defer
             ></script>
             <div className="bg-dark"></div>
-           
+
             <AppBar />
             <Component {...pageProps} />
-            <Container sx={{height:'50px'}}></Container>
+            <Container sx={{ height: "50px" }}></Container>
             {/* <Nav /> */}
             <SimpleBottomNavigation />
           </div>
