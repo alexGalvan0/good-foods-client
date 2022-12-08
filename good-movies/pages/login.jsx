@@ -1,6 +1,5 @@
 import LoginForm from "../components/login/LoginForm"
-import GoogleLogin from "../components/login/GoogleLogin";
-import SignIn from "../components/login/SignIn";
+
 function Login() {
     return (
         <div className="container flex-column justify-content-center mt-xl-5 pt-xl-5">

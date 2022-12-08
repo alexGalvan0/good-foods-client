@@ -1,4 +1,3 @@
-import About from "../components/about/Home"
 import useLocalStorage from '../hooks/useLocalStorage'
 function AboutPage(){
 
