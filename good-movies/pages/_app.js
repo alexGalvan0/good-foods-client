@@ -6,7 +6,7 @@ import Script from "next/script";
 import Head from "next/head";
 import AppBar from "../components/nav/MenuAppBar";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { blue, red, grey, black } from "@mui/material/colors";
+import { blue, red, grey } from "@mui/material/colors";
 import SimpleBottomNavigation from "../components/nav/BottomNav";
 import { useRouter } from "next/router";
 import { Container } from "@mui/system";
@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       primary: {
         main: blue[700],
         alert: red[500],
-        black: black,
+        black: '#000000',
       },
       secondary: {
         main: "#fff",
