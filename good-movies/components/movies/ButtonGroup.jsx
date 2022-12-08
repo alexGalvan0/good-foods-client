@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 function ButtonGroup({ mData }) {
 
   const user = useUser();
-  const url = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/movies/";
+  const url = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us78.gitpod.io/api/movies/";
   const token = localStorage.getItem('token')
   const config = {
     title: mData.Title,
@@ -30,14 +30,14 @@ function ButtonGroup({ mData }) {
   const likeMovie = async () => {
     await addMovieToDb();
     let request = axios.post(
-      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addLikedList/${user.id}/${mData.imdbID}/`
+      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us78.gitpod.io/api/addLikedList/${user.id}/${mData.imdbID}/`
     );
 
   };
   const  watchedMovie = async () => {
     await addMovieToDb();
     let request = axios.post(
-      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/addWatchedList/${user.id}/${mData.imdbID}/`
+      `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us78.gitpod.io/api/addWatchedList/${user.id}/${mData.imdbID}/`
     );
 
   }

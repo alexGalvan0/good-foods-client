@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }) {
           }}
         >
           <div style={{ maxWidth: "100vw" }}>
-            <Head className="h-11 standalone:h-22">
+            <Head>
               <title>Good Movies</title>
               <meta
                 name="apple-mobile-web-app-status-bar-style"
@@ -64,10 +64,12 @@ function MyApp({ Component, pageProps }) {
                 name="viewport"
                 content="initial-scale=1, viewport-fit=cover"
               />
-              <link rel="manifest" href="/site.webmanifest" />
+              <link rel="manifest" href="/manifest.sitemanifest" />
               <link rel="apple-touch-icon" href="/icon.png" />
               <meta name="theme-color" content="#191b1d" />
-              <Script
+            
+            </Head>
+            <Script
                 src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"
                 defer
               ></Script>
@@ -84,8 +86,7 @@ function MyApp({ Component, pageProps }) {
                 crossOrigin="anonymous"
                 defer
               ></Script>
-            </Head>
-            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js" async defer></script>
             <script
               src="https://accounts.google.com/gsi/client"
               async

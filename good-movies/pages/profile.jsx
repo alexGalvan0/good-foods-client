@@ -119,7 +119,7 @@ function Profile() {
         >
           {Array.isArray(data) &&
             data.map((m) => (
-              <div className="col d-flex flex-column">
+              <div key={m.imdbId} className="col d-flex flex-column">
                 <div>
                   <Button
                     sx={{
@@ -134,7 +134,6 @@ function Profile() {
                       deleteLikedMovie(m.imdbId);
                     }}
                     className="btn-alert"
-                    key={m.imdbId}
                   >
                     x
                   </Button>
@@ -175,7 +174,7 @@ function Profile() {
         >
           {Array.isArray(watched) &&
             watched.map((m) => (
-              <div className="col d-flex flex-column">
+              <div key={m.imdbId} className="col d-flex flex-column">
                 <div>
                   <Button
                     sx={{
@@ -190,7 +189,7 @@ function Profile() {
                       deleteWatchedMovie(m.imdbId);
                     }}
                     className="btn-alert"
-                    key={m.imdbId}
+                    
                   >
                     x
                   </Button>
@@ -225,8 +224,8 @@ function Profile() {
 
           <div className="col mt-2 px-xl-5 d-flex flex-wrap gap-3">
             {followData.map((f) => (
-              <div className="col">
-                <FollowCard onClick={() => {deletedFriend(f.username)}} key={f.id} userName={f.username} userId={f.id} />
+              <div key={f.id} className="col">
+                <FollowCard onClick={() => {deletedFriend(f.username)}} userName={f.username} userId={f.id} />
               </div>
             ))}
           </div>
