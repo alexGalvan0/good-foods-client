@@ -6,8 +6,14 @@ const useUser = () => {
     const router = useRouter();
     const [userData, setUserData] = useState({})
 
+
     useEffect(() => {
-        const token = localStorage.getItem('token')
+        //const token = localStorage.getItem('token')
+        let token
+    if (typeof window !== 'undefined') {
+        // Perform localStorage action
+        token = localStorage.getItem('token')
+      }
 
         const config = { headers: { Authorization: `Bearer ${token}` } }
         const url = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us78.gitpod.io/api/user"
