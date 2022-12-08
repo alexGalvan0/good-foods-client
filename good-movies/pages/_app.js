@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       primary: {
         main: blue[700],
         alert: red[500],
-        black: '#000000',
+        black: "#000000",
       },
       secondary: {
         main: "#fff",
@@ -65,29 +65,32 @@ function MyApp({ Component, pageProps }) {
                 name="viewport"
                 content="initial-scale=1, viewport-fit=cover"
               />
-              <link rel="manifest" href="/manifest.json"/>
+              <link rel="manifest" href="/site.webmanifest" />
               <link rel="apple-touch-icon" href="/icon.png" />
               <meta name="theme-color" content="#191b1d" />
-            
             </Head>
             <Script
-                src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"
-                defer
-              ></Script>
+              src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"
+              defer
+            ></Script>
 
-              <Script
-                src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossOrigin="anonymous"
-                defer
-              ></Script>
-              <Script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-                crossOrigin="anonymous"
-                defer
-              ></Script>
-            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js" async defer></script>
+            <Script
+              src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+              integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+              crossOrigin="anonymous"
+              defer
+            ></Script>
+            <Script
+              src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+              integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+              crossOrigin="anonymous"
+              defer
+            ></Script>
+            <script
+              src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"
+              async
+              defer
+            ></script>
             <script
               src="https://accounts.google.com/gsi/client"
               async
