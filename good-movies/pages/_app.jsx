@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
                 name="viewport"
                 content="initial-scale=1, viewport-fit=cover"
               />
-              <link rel="manifest" href="/manifest.sitemanifest"/>
+              <link rel="manifest" href="../public/manifest.json"/>
               <link rel="apple-touch-icon" href="/icon.png" />
               <meta name="theme-color" content="#191b1d" />
             
