@@ -14,7 +14,7 @@ function MovieSearch() {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const OMDB_URL = "https://www.omdbapi.com/";
   const BASE_URL =
-    "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/";
+    "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us78.gitpod.io/api/";
 
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
