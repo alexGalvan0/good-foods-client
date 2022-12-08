@@ -9,7 +9,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blue, red, grey, black } from "@mui/material/colors";
 import SimpleBottomNavigation from "../components/nav/BottomNav";
 import { useRouter } from "next/router";
-import FloatingActionButtons from "../components/nav/FloatingActionButton";
 import { Container } from "@mui/system";
 
 function MyApp({ Component, pageProps }) {

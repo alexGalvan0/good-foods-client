@@ -12,9 +12,9 @@ function FollowingProfile() {
   const [userData, setUserData] = useState([]);
 
   const { id } = router.query;
-  const BASE_URL = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/following/${id}/`;
-  const url = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/getUserLikedMovies/${id}/`;
-  const watchUrl = `https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us77.gitpod.io/api/getUserWatchedMovies/${id}/`;
+  const BASE_URL = `http://127.0.0.1:8000/api/following/${id}/`;
+  const url = `http://127.0.0.1:8000/api/getUserLikedMovies/${id}/`;
+  const watchUrl = `http://127.0.0.1:8000/api/getUserWatchedMovies/${id}/`;
 
   useEffect(() => {
     const getData = async () => {
