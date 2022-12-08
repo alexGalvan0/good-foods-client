@@ -2,12 +2,18 @@ import axios from "axios";
 import Link from "next/link";
 import useUser from "../../hooks/useUser";
 import { Button } from "@mui/material";
+import { useEffect } from "react";
 
 function ButtonGroup({ mData }) {
 
+  let token = ''
+  useEffect(() => {
+    token = localStorage.getItem('token')
+  },[])
+
   const user = useUser();
   const url = "https://8000-alexgalvan0-goodmoviesa-b4acnd9aawy.ws-us78.gitpod.io/api/movies/";
-  const token = localStorage.getItem('token')
+
   const config = {
     title: mData.Title,
     plot: mData.Plot,
@@ -21,10 +27,11 @@ function ButtonGroup({ mData }) {
     //roten_score:mData.Ratings.toString(),
     run_time: mData.Runtime,
   };
-  const headers = { Authorization: `Bearer ${token}` } 
+
 
   const addMovieToDb = async () => {
-    await axios.post(url, config, { headers: { Authorization: `Bearer ${token}` } })
+    const headers = { Authorization: `Bearer ${token}` } 
+    await axios.post(url, config, headers )
     .catch(function (err){return});
   };
   const likeMovie = async () => {
