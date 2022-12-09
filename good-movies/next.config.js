@@ -1,9 +1,6 @@
-const withPWA = require('next-pwa')({
-  dest: 'public'
-})
-
-module.exports = withPWA ({
+module.exports = {
   images: {
     domains: ['m.media-amazon.com'],
   },
-
+  distDir: 'build',
+};
