@@ -48,7 +48,8 @@ function MovieSearch() {
     }
   };
 
-  const displayResult = () => {
+  const displayResult = (e) => {
+    e.preventDefault()
     if (searchType === "movie" && search != "") {
       try {
         getMovies();
@@ -70,6 +71,7 @@ function MovieSearch() {
   };
 
   return (
+    <form>
     <div className="container bg-dark mt-3 pt-3">
       <div className="row pb-3">
         <div className="col col-lg-4">
@@ -83,6 +85,7 @@ function MovieSearch() {
             aria-label="Search"
           />
           <Button
+            type='submit'
             sx={{ bgcolor: "primary.main" }}
             color="secondary"
             onClick={displayResult}
@@ -169,6 +172,7 @@ function MovieSearch() {
         </div>
       ) : null}
     </div>
+    <form>
   );
 }
 
