@@ -91,6 +91,10 @@ function Profile() {
                   {" "}
                    Following: <strong>{followData.length}</strong>
                 </h6>
+                <h6 className="text-light">
+                  {" "}
+                   Followers: <strong>{followData.length}</strong>
+                </h6>
               </div>
               <Link href="movie/search">
                 <Button sx={{ bgcolor: "primary.main" }} color="secondary">
