@@ -7,7 +7,6 @@ import useUser from "../../hooks/useUser";
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 
-
 function MovieSearch() {
   const route = useRouter();
   const user = useUser();
@@ -39,26 +38,24 @@ function MovieSearch() {
   };
 
   const getFriends = async () => {
-    try{
-      let lowerSearch = search.toLowerCase()
+    try {
+      let lowerSearch = search.toLowerCase();
       let req = axios.get(`${BASE_URL}getUserByUsername/${lowerSearch}`);
       let resp = await req;
       setData(resp.data);
     } catch {
-      setData('no user found')
+      setData("no user found");
     }
   };
 
   const displayResult = () => {
-    if (searchType === "movie" && search != '') {
-      try{
+    if (searchType === "movie" && search != "") {
+      try {
         getMovies();
         results();
       } catch {
-        alert ('Movie Not Found')
+        alert("Movie Not Found");
       }
-    
-
     }
     if (searchType === "user") {
       getFriends();
@@ -111,7 +108,9 @@ function MovieSearch() {
                 overflow: "auto",
               }}
             >
-              {data != undefined && data.splice(0, 5).length > 0 ? (
+              {Array.isArray(data) &&
+              data != undefined &&
+              data.splice(0, 5).length > 0 ? (
                 data.map((d) => (
                   <Link
                     className="rounded"
@@ -135,7 +134,7 @@ function MovieSearch() {
         </div>
       ) : null}
 
-      {searchType == "user" && data!= undefined ? (
+      {searchType == "user" && data != undefined ? (
         <div className="col-lg-3">
           <div className="row">
             <div className="col">
