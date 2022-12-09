@@ -172,7 +172,7 @@ function MovieSearch() {
         </div>
       ) : null}
     </div>
-    <\form>
+    </form>
   );
 }
 
