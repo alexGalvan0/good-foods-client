@@ -6,4 +6,4 @@ module.exports = withPWA ({
   images: {
     domains: ['m.media-amazon.com'],
   },
-});
+
