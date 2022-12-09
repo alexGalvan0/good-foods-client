@@ -1,7 +1,7 @@
 {
-  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/about": "pages/about.html",
+  "/_app": "pages/_app.js",
   "/": "pages/index.html",
   "/login": "pages/login.html",
   "/movie/[imdbID]": "pages/movie/[imdbID].html",
