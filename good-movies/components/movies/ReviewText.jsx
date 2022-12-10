@@ -32,7 +32,7 @@ const submitReview = async()=>{
   if(value){
     const url = 'https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/review/'
     let config = {
-      id:user.id,
+      user:user.id,
       review:value,
       movie: 1
     }
