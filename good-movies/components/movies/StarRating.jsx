@@ -17,6 +17,7 @@ export default function StarRating() {
         
         name="simple-controlled"
         value={value}
+        size="large"
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
