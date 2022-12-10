@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { useEffect } from "react";
 import ReviewModal from "./ReviewModal";
 
-function ButtonGroup({ mData }) {
+function ButtonGroup({ mData, movieTitle }) {
   let token = "";
   useEffect(() => {
     token = localStorage.getItem("token");
@@ -76,7 +76,7 @@ function ButtonGroup({ mData }) {
           </Button>
         </Link>
 
-        <ReviewModal buttonText="REVIEW" />
+        <ReviewModal movieTitle={movieTitle} buttonText="REVIEW" />
       </div>
     </div>
   );

@@ -46,7 +46,7 @@ function MovieProfile({mData, uData}) {
                             <p className='text-light'>Runtime: {movieData.Runtime}</p>
                         </div>
                     </div>
-                    <ButtonGroup mData={mData} uData={uData} />
+                    <ButtonGroup movieTitle={movieData.Title} mData={mData} uData={uData} />
                 </div>
             </div>
         </div>
