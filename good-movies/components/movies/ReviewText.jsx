@@ -4,12 +4,18 @@ import TextField from "@mui/material/TextField";
 import Link from "next/link";
 import { Button } from "@mui/material";
 
+
 export default function ReviewText({movieTitle}) {
-  const [value, setValue] = React.useState("Controlled");
+  const [value, setValue] = React.useState("");
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+
+
+
+
+  //ADDD API CALL TO POST MOVIE
 
   return (
     <Box
@@ -36,7 +42,7 @@ export default function ReviewText({movieTitle}) {
             // onClick={likeMovie}
             sx={{ bgcolor: "secondary" }}
           >
-            LIKE
+            ADD REVIEW
           </Button>
         </Link>
       </div>

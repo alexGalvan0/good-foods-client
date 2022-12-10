@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-
-
+import StarRating from '../../components/movies/StarRating';
+import Reviews from '../../components/movies/Reviews';
 import useUser from "../../hooks/useUser"
 import ButtonGroup from '../../components/movies/ButtonGroup';
 import axios from 'axios';
@@ -37,6 +37,8 @@ function MovieProfile({mData, uData}) {
                 <div className="col">
                     <div className="media">
                         <img src={movieData.Poster} className="mr-3" alt="movie" />
+                        <StarRating />
+                        <ButtonGroup movieTitle={movieData.Title} mData={mData} uData={uData} />
                         <div className="media-body">
                             <h3 className="bold mt-2 text-light">{movieData.Title}</h3>
                             <p className='text-light'>Plot: {movieData.Plot}</p>
@@ -45,8 +47,13 @@ function MovieProfile({mData, uData}) {
                             <p className='text-light'>Released: {movieData.Released}</p>
                             <p className='text-light'>Runtime: {movieData.Runtime}</p>
                         </div>
+                        <div className='mt-5'>
+                            <h6 className="bold text-light">Reviews: </h6>
+                            <Reviews reviewer={'@agalvan'} review='the movie wasgood' reviewId='1' />
+                            <Reviews reviewer={'@agalvan'} review='the movie wasgood'reviewId='2' />
+                        </div>
                     </div>
-                    <ButtonGroup movieTitle={movieData.Title} mData={mData} uData={uData} />
+                    
                 </div>
             </div>
         </div>

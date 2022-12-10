@@ -20,7 +20,8 @@ function MyApp({ Component, pageProps }) {
       primary: {
         main: blue[700],
         alert: red[500],
-        black: black,
+        black: "#000000",
+        white:"#FFFFFF",
       },
       secondary: {
         main: "#fff",
