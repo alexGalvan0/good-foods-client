@@ -10,11 +10,14 @@ function FollowingProfile() {
   const [data, setData] = useState([]);
   const [watched, setWatched] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [followData, setFollowData] = useState([]);
 
   const { id } = router.query;
   const BASE_URL = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/following/${id}/`;
   const url = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getUserLikedMovies/${id}/`;
   const watchUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getUserWatchedMovies/${id}/`;
+  const following = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/follow/${id}/agalvan/`;
+
 
   useEffect(() => {
     const getData = async () => {
@@ -32,10 +35,16 @@ function FollowingProfile() {
       const response = request.data;
       setWatched(response);
     };
+    const getFollowing = async () => {
+      const request = await axios.get(following);
+      const response = request.data;
+      setFollowData(response);
+    };
 
     getUserData();
     getData();
     getWatchedData();
+    getFollowing()
   }, []);
 
   return (
@@ -46,6 +55,21 @@ function FollowingProfile() {
         justifyContent: "center",
       }}
     >
+      <div className="d-flex flex-md-column gap-2">
+        <h6 className="text-light">
+          {" "}
+          Liked: <strong>{data.length}</strong>
+        </h6>
+        <h6 className="text-light">
+          {" "}
+          Watched: <strong>{watched.length}</strong>
+        </h6>
+        <h6 className="text-light">
+          {" "}
+          Following: <strong>{followData.length}</strong>
+        </h6>
+
+      </div>
       <Box sx={{ paddingBottom: 3 }}>
         <Typography variant="h2" color="secondary">
           @{userData.username}

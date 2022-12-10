@@ -1,60 +1,89 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import StarRating from "../../components/movies/StarRating";
+import Reviews from "../../components/movies/Reviews";
+import useUser from "../../hooks/useUser";
+import ButtonGroup from "../../components/movies/ButtonGroup";
+import axios from "axios";
+import { Typography } from "@mui/material";
 
+function MovieProfile({ mData, uData }) {
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
-import useUser from "../../hooks/useUser"
-import ButtonGroup from '../../components/movies/ButtonGroup';
-import axios from 'axios';
+  const router = useRouter();
 
+  const [movieData, setMovieData] = useState({});
 
-function MovieProfile({mData, uData}) {
-    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
+  const { imdbID } = router.query;
 
-    const router = useRouter();
+  useEffect(() => {
+    const req = async () => {
+      let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`;
+      const data = axios.get(url);
+      const response = await data;
+      setMovieData(response.data);
+    };
+    req();
+  }, []);
 
-    const [movieData, setMovieData] = useState({})
+  mData = movieData;
+  uData = useUser();
+  return (
+    <div className="container rounded bg-primary my-5 text-center text-lg-start pt-5 mb-5 pb-5 p-md-5">
+      <div className="row">
+        <div className="col">
+          <div className="media">
+            <div className="d-md-flex  mb-3">
+              <img src={movieData.Poster} alt="movie" className="mb-sm-3" />
 
-
-    const { imdbID } = router.query;
- 
-    useEffect(() => {
-        const req = async () => {
-            let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
-            const data = axios.get(url)
-            const response = await data
-            setMovieData(response.data)
-        }
-        req()
-
-    }, [])
-
-
-    mData = movieData
-    uData = useUser()
-    return (
-        <div className="container rounded bg-primary my-5 text-center text-lg-start mb-5 pb-5">
-            <div className="row">
-                <div className="col">
-                    <div className="media">
-                        <img src={movieData.Poster} className="mr-3" alt="movie" />
-                        <div className="media-body">
-                            <h3 className="bold mt-2 text-light">{movieData.Title}</h3>
-                            <p className='text-light'>Plot: {movieData.Plot}</p>
-                            <p className='text-light'>Director: {movieData.Director}</p>
-                            <p className='text-light'>Rated: {movieData.Rated}</p>
-                            <p className='text-light'>Released: {movieData.Released}</p>
-                            <p className='text-light'>Runtime: {movieData.Runtime}</p>
-                        </div>
-                    </div>
-                    <ButtonGroup mData={mData} uData={uData} />
-                </div>
+              <div className="media-body m-md-4">
+                <h3 className="bold mt-2 text-light">{movieData.Title}</h3>
+                <p className="text-light">Plot: {movieData.Plot}</p>
+                <p className="text-light">Director: {movieData.Director}</p>
+                <p className="text-light">Rated: {movieData.Rated}</p>
+                <p className="text-light">Released: {movieData.Released}</p>
+                <p className="text-light">Runtime: {movieData.Runtime}</p>
+              </div>
             </div>
+            <ButtonGroup
+              movieTitle={movieData.Title}
+              mData={mData}
+              uData={uData}
+            />
+            <hr className="text-light" />
+
+            <StarRating />
+
+            <div className="mt-5">
+              <Typography
+                sx={{ fontWeight: "bold" }}
+                variant="h6"
+                color="#FFFFFF"
+                component="legend"
+              >
+                Reviews:
+              </Typography>
+              <Reviews
+                reviewer={"@agalvan"}
+                review="the movie wasgood"
+                reviewId="1"
+              />
+              <Reviews
+                reviewer={"@agalvan"}
+                review="the movie wasgood"
+                reviewId="2"
+              />
+              <Reviews
+                reviewer={"@agalvan"}
+                review="the movie wasgood"
+                reviewId="3"
+              />
+            </div>
+          </div>
         </div>
-
-
-
-    )
+      </div>
+    </div>
+  );
 }
 
 export default MovieProfile;
-
