@@ -14,18 +14,6 @@ export default function ReviewText({movieTitle,mData}) {
     setValue(event.target.value);
   };
 
-
-
-
-  //ADDD API CALL TO POST MOVIE
-    //GET && POST REVIEWS https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/review/
-  // JSON SHAPE
-// {
-//   "id": 1,
-//   "review": "This movie is soooo good!",
-//   "user": 1,
-//   "movie": 10
-// }
 const user = useUser()
 
 const submitReview = async()=>{
@@ -34,7 +22,7 @@ const submitReview = async()=>{
     let config = {
       user:user.id,
       review:value,
-      movie: 1
+      movie: 1 //HARD COADED GET MOVIE ID 
     }
     let req = axios.post(url,config)
     let res = await req
