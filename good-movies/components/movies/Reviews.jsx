@@ -44,6 +44,16 @@ export default function Reviews({ review, reviewer,reviewId }) {
     setExpanded(newExpanded ? panel : false);
   };
 
+  //GET && POST REVIEWS https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/review/
+  // JSON SHAPE
+// {
+//   "id": 1,
+//   "review": "This movie is soooo good!",
+//   "user": 1,
+//   "movie": 10
+// }
+
+
   return (
     <div>
       <Accordion
