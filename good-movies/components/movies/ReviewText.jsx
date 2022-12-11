@@ -1,13 +1,15 @@
-import * as React from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Link from "next/link";
 import { Button } from "@mui/material";
 import axios from "axios";
 import useUser from "../../hooks/useUser";
+import { useEffect } from "react";
 
 export default function ReviewText({ movieTitle, mData }) {
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = useState("");
+  const [movieid, setMovieid] = useState("");
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -36,25 +38,33 @@ export default function ReviewText({ movieTitle, mData }) {
     });
   };
 
-  const submitReview = async () => {
-    if (value) {
+  const getMovieId = async () => {
+    try {
       await addMovieToDb();
-      // GET MOVIE ID
-      const movieIdUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getMovieByImdbID/${mData.imdbID}/`;
-      let idRequest = axios.get(movieIdUrl);
-      let movieId = await idRequest.data;
-
-      const url =
-        "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/review/";
-      let config = {
-        user: user.id,
-        review: value,
-        movie: movieId,
-      };
-      let req = axios.post(url, config);
-      let res = await req;
-
+    } catch {
+      null;
     }
+    // GET MOVIE ID
+    const movieIdUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getMovieByImdbID/${mData.imdbID}/`;
+    let idRequest = axios.get(movieIdUrl);
+    let movieId = await idRequest.data;
+    setMovieid(movieId);
+
+  };
+
+  useEffect(async () => {
+    await getMovieId();
+  }, []);
+
+  const addReview = async () => {
+    const url =
+      "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/review/";
+    let config = {
+      user: user.id,
+      review: value,
+      movie: movieid,
+    };
+    let req = await axios.post(url, config);
   };
 
   return (
@@ -79,7 +89,7 @@ export default function ReviewText({ movieTitle, mData }) {
           <Button
             size="small"
             variant="contained"
-            onClick={submitReview}
+            onClick={addReview}
             sx={{ bgcolor: "secondary" }}
           >
             ADD REVIEW

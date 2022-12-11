@@ -13,6 +13,7 @@ function MovieProfile({ mData, uData }) {
   const router = useRouter();
 
   const [movieData, setMovieData] = useState({});
+  
 
   const { imdbID } = router.query;
 
