@@ -46,26 +46,18 @@ export default function ReviewText({ movieTitle, mData }) {
     }
     // GET MOVIE ID
     const movieIdUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getMovieByImdbID/${mData.imdbID}/`;
-    let idRequest = axios.get(movieIdUrl);
-    let movieId = await idRequest.data;
-    setMovieid(movieId);
-
-  };
-
-  useEffect(async () => {
-    await getMovieId();
-  }, []);
-
-  const addReview = async () => {
-    const url =
+    await axios.get(movieIdUrl).then((idResponse) => {
+      const url =
       "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/review/";
     let config = {
       user: user.id,
       review: value,
-      movie: movieid,
+      movie: idResponse.data,
     };
-    let req = await axios.post(url, config);
+    axios.post(url, config);
+    });
   };
+
 
   return (
     <Box
@@ -89,7 +81,7 @@ export default function ReviewText({ movieTitle, mData }) {
           <Button
             size="small"
             variant="contained"
-            onClick={addReview}
+            onClick={getMovieId}
             sx={{ bgcolor: "secondary" }}
           >
             ADD REVIEW
