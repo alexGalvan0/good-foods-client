@@ -13,22 +13,16 @@ function MovieProfile({ mData, uData }) {
   const router = useRouter();
 
   const [movieData, setMovieData] = useState({});
-  const [reviews, setReviews] = useState([]);
+  
 
   const { imdbID } = router.query;
 
   useEffect(() => {
     const req = async () => {
       let url = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`;
-
-      axios.get(url).then((response) => {
-        setMovieData(response.data).then(movieId => {
-          let reviewsUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getReviewByMovieId/${movieId.id}/`;
-          let req = axios.get(reviewsUrl).then(() => {setReviews(req.data);})
-          
-          console.log(reviews);
-        });
-      });
+      const data = axios.get(url);
+      const response = await data;
+      setMovieData(response.data);
     };
     req();
   }, []);
