@@ -76,7 +76,7 @@ function MovieProfile({ mData, uData }) {
               {reviewData.map((rev) => (
                 <Reviews
                   reviewer={rev.user.username}
-                  review={rev.movie.review}
+                  review={rev.review}
                   reviewId={rev.id}
                 />
               ))}
