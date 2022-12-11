@@ -13,7 +13,7 @@ function MovieProfile({ mData, uData }) {
   const router = useRouter();
 
   const [movieData, setMovieData] = useState({});
-  
+  const [reviewData, setReviewData] = useState([]);
 
   const { imdbID } = router.query;
 
@@ -24,7 +24,16 @@ function MovieProfile({ mData, uData }) {
       const response = await data;
       setMovieData(response.data);
     };
-    req();
+
+    const getReviews = async () => {
+      let url = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getReviewByMovieId/${3}/`;
+      const data = axios.get(url);
+      const response = await data;
+      setReviewData(response.data);
+    };
+
+    req()
+    getReviews()
   }, []);
 
   mData = movieData;
@@ -64,21 +73,13 @@ function MovieProfile({ mData, uData }) {
               >
                 Reviews:
               </Typography>
-              <Reviews
-                reviewer={"@agalvan"}
-                review="the movie wasgood"
-                reviewId="1"
-              />
-              <Reviews
-                reviewer={"@agalvan"}
-                review="the movie wasgood"
-                reviewId="2"
-              />
-              <Reviews
-                reviewer={"@agalvan"}
-                review="the movie wasgood"
-                reviewId="3"
-              />
+              {reviewData.map((rev) => (
+                <Reviews
+                  reviewer={rev.user.username}
+                  review={rev.movie.review}
+                  reviewId={rev.id}
+                />
+              ))}
             </div>
           </div>
         </div>
