@@ -18,7 +18,6 @@ function FollowingProfile() {
   const watchUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getUserWatchedMovies/${id}/`;
   const following = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/follow/${id}/agalvan/`;
 
-
   useEffect(() => {
     const getData = async () => {
       const request = await axios.get(url);
@@ -44,7 +43,7 @@ function FollowingProfile() {
     getUserData();
     getData();
     getWatchedData();
-    getFollowing()
+    getFollowing();
   }, []);
 
   return (
@@ -55,28 +54,29 @@ function FollowingProfile() {
         justifyContent: "center",
       }}
     >
-      <div className="d-flex flex-md-column gap-2">
-        <h6 className="text-light">
-          {" "}
-          Liked: <strong>{data.length}</strong>
-        </h6>
-        <h6 className="text-light">
-          {" "}
-          Watched: <strong>{watched.length}</strong>
-        </h6>
-        <h6 className="text-light">
-          {" "}
-          Following: <strong>{followData.length}</strong>
-        </h6>
-
-      </div>
       <Box sx={{ paddingBottom: 3 }}>
-        <Typography variant="h2" color="secondary">
-          @{userData.username}
-        </Typography>
-        <Typography variant="h6" color="secondary">
-          MOVIES LIKED:{" "}
-        </Typography>
+        <h1 className="display-5 fw-bold text-light">
+                @{userData.username ? userData.username : null}
+              </h1>
+          <Typography variant="h6" color="secondary">
+            <div className="d-flex flex-md-column gap-2">
+              <h6 className="text-light">
+                {" "}
+                Liked: <strong>{data.length}</strong>
+              </h6>
+              <h6 className="text-light">
+                {" "}
+                Watched: <strong>{watched.length}</strong>
+              </h6>
+              <h6 className="text-light">
+                {" "}
+                Following: <strong>{followData.length}</strong>
+              </h6>
+            </div>
+            MOVIES LIKED:{" "}
+          </Typography>
+
+
         {data.map((d) => (
           <Link href={`/movie/${d.imdbId}`} key={d.id + "l"}>
             <Image
