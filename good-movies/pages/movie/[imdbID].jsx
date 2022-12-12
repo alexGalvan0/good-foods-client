@@ -78,6 +78,7 @@ function MovieProfile({ mData, uData }) {
                   reviewer={rev.user.username}
                   review={rev.review}
                   reviewId={rev.id}
+                  key={rev.id}
                 />
               ))}
             </div>
