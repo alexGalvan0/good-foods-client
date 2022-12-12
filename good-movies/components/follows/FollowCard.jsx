@@ -14,7 +14,7 @@ import useUser from '../../hooks/useUser';
 
 export default function FollowCard({userName, userId,setFollowData}) {
 const route = useRouter()
-  const BASE_URL = 'https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/'
+  const BASE_URL = 'https://good-movies-371412.ue.r.appspot.com/api/'
   const user = useUser()
 
   const unFollowFriend = async () => {

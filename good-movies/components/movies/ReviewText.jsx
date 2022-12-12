@@ -17,7 +17,7 @@ export default function ReviewText({ movieTitle, mData }) {
 
   const user = useUser();
   const murl =
-    "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/movies/";
+    "https://good-movies-371412.ue.r.appspot.com/api/movies/";
   const config = {
     title: mData.Title,
     plot: mData.Plot,
@@ -45,10 +45,10 @@ export default function ReviewText({ movieTitle, mData }) {
       null;
     }
     // GET MOVIE ID
-    const movieIdUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getMovieByImdbID/${mData.imdbID}/`;
+    const movieIdUrl = `https://good-movies-371412.ue.r.appspot.com/api/getMovieByImdbID/${mData.imdbID}/`;
     await axios.get(movieIdUrl).then((idResponse) => {
       const url =
-      "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/review/";
+      "https://good-movies-371412.ue.r.appspot.com/api/review/";
     let config = {
       user: user.id,
       review: value,

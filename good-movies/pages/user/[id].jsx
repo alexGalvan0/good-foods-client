@@ -13,10 +13,10 @@ function FollowingProfile() {
   const [followData, setFollowData] = useState([]);
 
   const { id } = router.query;
-  const BASE_URL = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/following/${id}/`;
-  const url = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getUserLikedMovies/${id}/`;
-  const watchUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getUserWatchedMovies/${id}/`;
-  const following = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/follow/${id}/agalvan/`;
+  const BASE_URL = `https://good-movies-371412.ue.r.appspot.com/api/following/${id}/`;
+  const url = `https://good-movies-371412.ue.r.appspot.com/api/getUserLikedMovies/${id}/`;
+  const watchUrl = `https://good-movies-371412.ue.r.appspot.com/api/getUserWatchedMovies/${id}/`;
+  const following = `https://good-movies-371412.ue.r.appspot.com/api/follow/${id}/agalvan/`;
 
   useEffect(() => {
     const getData = async () => {

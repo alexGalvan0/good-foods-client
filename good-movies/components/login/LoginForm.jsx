@@ -21,7 +21,7 @@ function LoginForm() {
     const submit = async (e) => {
         e.preventDefault()
         try {
-            const user = axios.post('https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/token', {
+            const user = axios.post('https://good-movies-371412.ue.r.appspot.com/api/token', {
                 "username": username.toLowerCase(),
                 "password": password
             })

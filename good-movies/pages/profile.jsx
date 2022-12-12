@@ -9,9 +9,9 @@ import { Container, Typography } from "@mui/material";
 
 function Profile() {
   let user = useUser();
-  const url = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getUserLikedMovies/${user.id}/`;
-  const following = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/follow/${user.id}/${user.username}/`;
-  const watchUrl = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getUserWatchedMovies/${user.id}/`;
+  const url = `https://good-movies-371412.ue.r.appspot.com/api/getUserLikedMovies/${user.id}/`;
+  const following = `https://good-movies-371412.ue.r.appspot.com/api/follow/${user.id}/${user.username}/`;
+  const watchUrl = `https://good-movies-371412.ue.r.appspot.com/api/getUserWatchedMovies/${user.id}/`;
 
   const [data, setData] = useState([]);
   const [followData, setFollowData] = useState([]);
@@ -48,7 +48,7 @@ function Profile() {
 
   const deleteLikedMovie = async (imdbId) => {
     await axios.delete(
-      `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/addLikedList/${user.id}/${imdbId}/`
+      `https://good-movies-371412.ue.r.appspot.com/api/addLikedList/${user.id}/${imdbId}/`
     );
     const request = await axios.get(url);
     const response = request;
@@ -57,7 +57,7 @@ function Profile() {
 
   const deleteWatchedMovie = async (imdbId) => {
     await axios.delete(
-      `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/addWatchedList/${user.id}/${imdbId}/`
+      `https://good-movies-371412.ue.r.appspot.com/api/addWatchedList/${user.id}/${imdbId}/`
     );
     const request = await axios.get(watchUrl);
     const response = request;
@@ -65,7 +65,7 @@ function Profile() {
   };
   const deletedFriend = async (userName) => {
     await axios.delete();
-    const request = await axios.get(`https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/follow/${user.id}/${user.username}/`);
+    const request = await axios.get(`https://good-movies-371412.ue.r.appspot.com/api/follow/${user.id}/${user.username}/`);
     const response = request;
     setFollowData(response.data);
   };
