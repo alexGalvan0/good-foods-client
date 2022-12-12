@@ -17,7 +17,7 @@ const useUser = () => {
                 const response = await data
                 setUserData(response.data[0])
             } else {
-                router.push('/login');               
+                router.push('/');               
                 
             }
         }
