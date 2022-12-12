@@ -18,7 +18,7 @@ const style = {
   p: 4,
 };
 
-export default function ReviewModal({ buttonText,movieTitle }) {
+export default function ReviewModal({mData, buttonText,movieTitle }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -43,7 +43,7 @@ export default function ReviewModal({ buttonText,movieTitle }) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Review
           </Typography>
-          <ReviewText movieTitle={movieTitle} />
+          <ReviewText mData={mData} movieTitle={movieTitle} />
 
         </Box>
       </Modal>

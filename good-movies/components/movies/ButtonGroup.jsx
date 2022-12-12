@@ -76,7 +76,7 @@ function ButtonGroup({ mData, movieTitle }) {
           </Button>
         </Link>
 
-        <ReviewModal movieTitle={movieTitle} buttonText="REVIEW" />
+        <ReviewModal mData={mData} movieTitle={movieTitle} buttonText="REVIEW" />
       </div>
     </div>
   );
