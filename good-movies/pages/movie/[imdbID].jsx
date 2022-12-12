@@ -26,7 +26,7 @@ function MovieProfile({ mData, uData }) {
     };
 
     const getReviews = async () => {
-      let url = `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/getReviewByMovieId/${imdbID}/`;
+      let url = `https://good-movies-371412.ue.r.appspot.com/api/getReviewByMovieId/${imdbID}/`;
       const data = axios.get(url);
       const response = await data;
       setReviewData(response.data);

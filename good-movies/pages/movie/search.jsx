@@ -13,7 +13,7 @@ function MovieSearch() {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const OMDB_URL = "https://www.omdbapi.com/";
   const BASE_URL =
-    "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/";
+    "https://good-movies-371412.ue.r.appspot.com/api/";
 
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");

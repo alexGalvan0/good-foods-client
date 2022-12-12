@@ -13,7 +13,7 @@ function ButtonGroup({ mData, movieTitle }) {
 
   const user = useUser();
   const url =
-    "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/movies/";
+    "https://good-movies-371412.ue.r.appspot.com/api/movies/";
 
   const config = {
     title: mData.Title,
@@ -38,13 +38,13 @@ function ButtonGroup({ mData, movieTitle }) {
   const likeMovie = async () => {
     await addMovieToDb();
     let request = axios.post(
-      `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/addLikedList/${user.id}/${mData.imdbID}/`
+      `https://good-movies-371412.ue.r.appspot.com/api/addLikedList/${user.id}/${mData.imdbID}/`
     );
   };
   const watchedMovie = async () => {
     await addMovieToDb();
     let request = axios.post(
-      `https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/addWatchedList/${user.id}/${mData.imdbID}/`
+      `https://good-movies-371412.ue.r.appspot.com/api/addWatchedList/${user.id}/${mData.imdbID}/`
     );
   };
 

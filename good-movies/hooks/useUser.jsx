@@ -10,7 +10,7 @@ const useUser = () => {
         const token = localStorage.getItem('token')
 
         const config = { headers: { Authorization: `Bearer ${token}` } }
-        const url = "https://8000-alexgalvan0-goodmoviesa-pjtmlhva1y5.ws-us78.gitpod.io/api/user"
+        const url = "https://good-movies-371412.ue.r.appspot.com/api/user"
         const req = async () => {
             if (token) {
                 const data = axios.get(url, config)
