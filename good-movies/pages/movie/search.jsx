@@ -137,7 +137,7 @@ function MovieSearch() {
         </div>
       ) : null}
 
-      {searchType == "user" && data.length != 0 ? (
+      {searchType == "user" && data != undefined ? (
         <div className="col-lg-3">
           <div className="row">
             <div className="col">
