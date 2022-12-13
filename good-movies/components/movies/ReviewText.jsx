@@ -77,7 +77,7 @@ export default function ReviewText({ movieTitle, mData }) {
           value={value}
           onChange={handleChange}
         />
-        <Link href="/search">
+        <Link href="/movie/search">
           <Button
             size="small"
             variant="contained"

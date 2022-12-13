@@ -55,7 +55,7 @@ function ButtonGroup({ mData, movieTitle }) {
       aria-label="Basic example"
     >
       <div className="d-flex flex-row gap-1">
-        <Link href="/search">
+        <Link href="/movie/search">
           <Button
             size="small"
             variant="contained"
@@ -65,7 +65,7 @@ function ButtonGroup({ mData, movieTitle }) {
             LIKE
           </Button>
         </Link>
-        <Link href="/search">
+        <Link href="/movie/search">
           <Button
             size="small"
             variant="contained"
