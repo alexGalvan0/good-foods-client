@@ -21,7 +21,8 @@ function MovieSearch() {
   const [searchType, setSearchType] = useState("movie");
   const [movieResults, setMovieResults] = useState(false);
   const [userResults, setUserResults] = useState(false);
-  let title = search.replaceAll(" ", "+");
+  let title = search.replaceAll(" ", "+")
+  title = title.trim();
 
   const getMovies = async () => {
     let req = axios.get(
