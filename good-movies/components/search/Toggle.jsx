@@ -14,9 +14,9 @@ export default function Toggle({setSearchType}) {
   };
 
   return (
-    <Container sx={{paddingLeft:0}}>
+    <Container sx={{paddingLeft:-2}}>
       <ToggleButtonGroup
-        sx={{ bgcolor:'primary.main',marginBottom:2 }}
+        sx={{ bgcolor:'primary.main',marginBottom:2,  marginRight:0 }}
         color="secondary"
         value={alignment}
         exclusive
