@@ -39,7 +39,7 @@ function Hero() {
               <>
                 <Link style={{ textDecoration: "none" }} href="/register">
                   <Button color="success" variant="contained">
-                    GET STARTED — IT IS FREE!
+                    GET STARTED — ITS FREE!
                   </Button>
                 </Link>
 
