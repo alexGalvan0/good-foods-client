@@ -28,7 +28,7 @@ function LoginForm() {
           username: username.toLowerCase().trim(),
           password: password,
         }
-      );
+      ); 
       const res = await user;
       localStorage.setItem("token", res.data.access);
       router.push("/profile");
